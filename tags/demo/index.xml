@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demo on Yuan Feng</title>
+    <link>https://yuan-feng1.github.io/tags/demo/</link>
+    <description>Recent content in Demo on Yuan Feng</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://yuan-feng1.github.io/tags/demo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How I built my own protfolio website</title>
+      <link>https://yuan-feng1.github.io/project/hw1/</link>
+      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/hw1/</guid>
+      <description>&lt;p&gt;A portfolio website is a great choice for you to showcase you work and let recruiters know more about you. With Github Page, we could easily set up a personal website for free. And using Hugo, you can have access for hundreds of special themes to choose from.&lt;/p&gt;
+&lt;p&gt;For me, I&amp;rsquo;m using Mac OS system and plan to build up this website from command line. Below is a detailed tutorial of how I successfully set up my website from scratch - Stay Tuned!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Install Hugo and Git&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First open the terminal, and input the following command-line. Note that if you do not have &lt;code&gt;homebrew&lt;/code&gt; installed, you may need to install it first.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I recommned installing Git as well. run &lt;code&gt;git --version&lt;/code&gt; in your command-line for checking.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Build on local machine&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Make sure to sit inside the directory to save the webiste. And run the following to initialize a new site:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd /Users/yuanfeng/Desktop
+hugo new site site_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, we should have a new folder with the name we just made. It will come with a list of folders, and we will dig deeper into those folders in a minute.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Select a theme&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I personally enjoy designs of minimalist and the use white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite. Its github repo could be found &lt;a href=&#34;https://github.com/themefisher/academia-hugo&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Then I run the following command line in the terminal to download the contents in themes folder:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd site_name
+cd themes
+git clone https://github.com/themefisher/academia-hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And it&amp;rsquo;s also necessary to make sure the configurations are correct. Here I made some changes in the config.toml.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;baseurl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://[your github username].github.io/&amp;#34;&lt;/span&gt;
+languageCode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
+title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the website title shown on the tab&amp;#34;&lt;/span&gt;
+theme &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the same as theme name (exactly the folder name) in your themes folder&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Test locally&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to see how the webpage currently looks like by running the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd site_name
+hugo server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The following indictcated success in running it locally. By going to &lt;code&gt;http://localhost:1313/ &lt;/code&gt;in my web browser, I could see my work so far and observe changes real-time.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Built in &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; ms
+Watching &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; changes in /Users/yuanfeng/site/yuan/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;archetypes,content,data,layouts,static&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+Watching &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; config changes in /Users/yuanfeng/site/yuan/config.toml
+Environment: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bind address 127.0.0.1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+Press Ctrl+C to stop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Personalize my website&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The template comes with a variety of different sections such as Publicatiosn, Recent Posts and Contact. However, in order for the main page to stay concise and minial, I removed the less appealing and related components and replaced the sample photos and texts with mine by editing html and md files.&lt;/p&gt;
+&lt;p&gt;Another main change compared with the original template is the header and dropdown. This turned out to be tricky as I needed to tweak the Javascript code as well. The final results seem great!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./sample.jpg&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Deploy to Git Pages&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Last step is to render my website to Github Pages. I started by running the following commnad, which will generate a folder called &lt;code&gt;public&lt;/code&gt; and it will contain the required web files.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd site_name
+hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create Github Repository&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to publish my site as my github name. In order to do that, I created a new branch named &lt;code&gt;&amp;lt;USERNAME&amp;gt;.github.io.&lt;/code&gt; and set it to public.&lt;/p&gt;
+&lt;p&gt;Then the following command could sync the website to my github.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd public
+git init
+git add .
+git remote add origin https://github.com/username/username.github.io.git
+git commit -m “first commit”
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After completing the commiting, I went to my repository and clicked on settings, then scrolled to the section of Github Pages. It successfully returned the link of my personal website:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://yuan-feng1.github.io/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And my personal website was successfully published.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s all for this blog. Thanks for reading!&lt;/p&gt;
+&lt;p&gt;Let me know if you have any comments/question. Feel free to find me at &lt;code&gt;yuan.feng347@duke.edu&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
