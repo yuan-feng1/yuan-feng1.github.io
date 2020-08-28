@@ -338,7 +338,7 @@
 
   
 
-<!--   
+  
 
   
   
@@ -435,7 +435,7 @@
 
   
 
-</div> -->
+</div>
 
       
 
@@ -461,25 +461,26 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>A portfolio website is a great choice for you to showcase you work and let recruiters know more about you. With Github Page, we could easily set up a personal website for free. And using Hugo, you can have access for hundreds of special themes to choose from.</p>
+      <p>A portfolio website is a great choice for you to showcase your work and let recruiters know more about you. With Github Page, we could easily set up a personal website for free. And using Hugo, you can have access to hundreds of special themes to choose from.</p>
 <p>For me, I&rsquo;m using Mac OS system and plan to build up this website from command line. Below is a detailed tutorial of how I successfully set up my website from scratch - Stay Tuned!</p>
+<p><a href="https://github.com/yuan-feng1/yuan-feng1.github.io">Link to my Github repository</a></p>
 <ul>
 <li><strong>Install Hugo and Git</strong></li>
 </ul>
 <p>First open the terminal, and input the following command-line. Note that if you do not have <code>homebrew</code> installed, you may need to install it first.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
-</code></pre></div><p>I recommned installing Git as well. run <code>git --version</code> in your command-line for checking.</p>
+</code></pre></div><p>I recommend installing Git as well. run <code>git --version</code> in your command-line for checking.</p>
 <ul>
 <li><strong>Build on local machine</strong></li>
 </ul>
-<p>Make sure to sit inside the directory to save the webiste. And run the following to initialize a new site:</p>
+<p>Make sure to sit inside the directory to save the website. And run the following to initialize a new site:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /Users/yuanfeng/Desktop
 hugo new site site_name
 </code></pre></div><p>Then, we should have a new folder with the name we just made. It will come with a list of folders, and we will dig deeper into those folders in a minute.</p>
 <ul>
 <li><strong>Select a theme</strong></li>
 </ul>
-<p>I personally enjoy designs of minimalist and the use white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite. Its github repo could be found <a href="https://github.com/themefisher/academia-hugo">here</a>.</p>
+<p>I personally enjoy designs of minimalist and the use of white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite. Its GitHub repo could be found <a href="https://github.com/themefisher/academia-hugo">here</a>.</p>
 <p>Then I run the following command line in the terminal to download the contents in themes folder:</p>
 <pre><code>cd site_name
 cd themes
@@ -495,7 +496,7 @@ theme <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;the 
 <p>I wanted to see how the webpage currently looks like by running the following:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd site_name
 hugo server
-</code></pre></div><p>The following indictcated success in running it locally. By going to <code>http://localhost:1313/ </code>in my web browser, I could see my work so far and observe changes real-time.</p>
+</code></pre></div><p>The following indicated success in running it locally. By going to <code>http://localhost:1313/ </code>in my web browser, I could see my work so far and observe changes real-time.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Built in <span style="color:#ae81ff">4</span> ms
 Watching <span style="color:#66d9ef">for</span> changes in /Users/yuanfeng/site/yuan/<span style="color:#f92672">{</span>archetypes,content,data,layouts,static<span style="color:#f92672">}</span>
 Watching <span style="color:#66d9ef">for</span> config changes in /Users/yuanfeng/site/yuan/config.toml
@@ -507,7 +508,7 @@ Press Ctrl+C to stop
 </code></pre></div><ul>
 <li><strong>Personalize my website</strong></li>
 </ul>
-<p>The template comes with a variety of different sections such as Publicatiosn, Recent Posts and Contact. However, in order for the main page to stay concise and minial, I removed the less appealing and related components and replaced the sample photos and texts with mine by editing html and md files.</p>
+<p>The template comes with a variety of different sections such as Publications, Recent Posts and Contact. However, in order for the main page to stay concise and minimal, I removed the less appealing and related components and replaced the sample photos and texts with mine by editing html and md files.</p>
 <p>Another main change compared with the original template is the header and dropdown. This turned out to be tricky as I needed to tweak the Javascript code as well. The final results seem great!</p>
 <p><img src="./sample.jpg" alt="png"></p>
 <ul>
@@ -527,7 +528,7 @@ git add .
 git remote add origin https://github.com/username/username.github.io.git
 git commit -m “first commit”
 git push origin master
-</code></pre></div><p>After completing the commiting, I went to my repository and clicked on settings, then scrolled to the section of Github Pages. It successfully returned the link of my personal website:</p>
+</code></pre></div><p>After completing the committing, I went to my repository and clicked on settings, then scrolled to the section of Github Pages. It successfully returned the link of my personal website:</p>
 <p><code>https://yuan-feng1.github.io/</code></p>
 <p>And my personal website was successfully published.</p>
 <p>That&rsquo;s all for this blog. Thanks for reading!</p>
