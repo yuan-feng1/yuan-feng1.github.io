@@ -18,7 +18,7 @@
       
       <guid>https://yuan-feng1.github.io/project/hw2/</guid>
       <description>&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Problem 13 Large sum&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem 13 Large sum - Solved by 224972&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In this question, we are asked to:&lt;/p&gt;
 &lt;p&gt;Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. &lt;a href=&#34;https://projecteuler.net/problem=13&#34;&gt;link here&lt;/a&gt;&lt;/p&gt;
@@ -146,15 +146,16 @@ yuanfeng@yuans-MacBook-Air &lt;span style=&#34;color:#ae81ff&#34;&gt;823&lt;/spa
 &lt;span style=&#34;color:#ae81ff&#34;&gt;5537376230&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Problem 31 Coin sums&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Problem 31 Coin sums - Solved by 83654&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In this question, we are asked to:&lt;/p&gt;
+&lt;p&gt;In this question, we are asked:&lt;/p&gt;
 &lt;p&gt;In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:&lt;/p&gt;
 &lt;p&gt;1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
 It is possible to make £2 in the following way:&lt;/p&gt;
 &lt;p&gt;1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
 How many different ways can £2 be made using any number of coins? &lt;a href=&#34;https://projecteuler.net/problem=31&#34;&gt;link here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This is a typical problem of &lt;code&gt;Dynamic Programming&lt;/code&gt;. Based on the discriptions, the order of the coins does not matter, and there will be enough coins to make each combination. I followed the normal way of solving DP problems by going from a small base case, and dive deeper into more complex cases. &lt;code&gt;Tablation&lt;/code&gt; is an optimal choice to reduce the space complexity, I built a table with all the possible combinations given the total amount value.&lt;/p&gt;
+&lt;p&gt;This is a typical problem of &lt;code&gt;Dynamic Programming&lt;/code&gt;. Based on the descriptions, the order of the coins does not matter, and there will be enough coins to make each combination. I followed the normal way of solving DP problems by going from a small base case, and dive deeper into more complex cases. &lt;code&gt;Tablation&lt;/code&gt; is an optimal choice to reduce the space complexity, I built a table with all the possible combinations given the total amount value.&lt;/p&gt;
+&lt;p&gt;Here is a table of base case: only the 1 penny is used as indicated in the second column, and as the target increase, there is only one way to reach the targeted amount.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -185,6 +186,7 @@ How many different ways can £2 be made using any number of coins? &lt;a href=&#
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;We then move forward to using both 1 penny and 2 penny coins. The following table shows the ways of coin combinations to reach the targeted amount. Since 0 and 1 are number below 2, only 1 penny is used. As we move to higher value of targets, if the difference between two target values is the same as a given coin, then we have one more possible combination by simply adding one more coin.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -215,6 +217,74 @@ How many different ways can £2 be made using any number of coins? &lt;a href=&#
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;To generalize the previous process, we ran over all the possible coins. For each coin, we modify the table from values in the target column that equals the value of the coin until we reach the final target value. This is a quite straightforward algorithm that could be implemented by the following code in Python:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
+def Solution_31&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;target&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  Dynamic programming to count the number
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  of coin combinations
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;#convert the amount to pennies&lt;/span&gt;
+	sum &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; target*100
+  &lt;span style=&#34;color:#75715e&#34;&gt;#total values in the target column&lt;/span&gt;
+	ttl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; + &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; * sum
+  &lt;span style=&#34;color:#75715e&#34;&gt;#list of coins to choose from&lt;/span&gt;
+ 	coins &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1, 2, 5, 10, 20, 50, 100, 200&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;#as we move towards to coins of larger value, update the table by adding new possible combinations&lt;/span&gt; 
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; coin in coins:
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in range&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;sum + &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; - coin&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+			ttl&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i + coin&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; +&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ttl&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;#return the result&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ttl&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-1&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;
+
+print&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Solution_31&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;2&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# result: 73682&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Problem 31 Coin sums - Solved by 23296&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this question, we are asked:&lt;/p&gt;
+&lt;p&gt;Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
+where each “_” is a single digit.&lt;/p&gt;
+&lt;p&gt;Filling in the blank spaces with 0 or 9 will give us the minimum or maximum value of the square. We take the square root and the range of answer is [1010101010, 1389026623].&lt;/p&gt;
+&lt;p&gt;The last digit in the required form is 0, therefore the number we hope to find should also end in 0, this in turn would mean its square will end in two 0s. This will further reduce the range of answers to [101010101, 138902662]. Now we could look at the second-last number. Since its square ends in 900, the target number should end in either 70 or 30.&lt;/p&gt;
+&lt;p&gt;Now we have reduced the search range to a much smaller scale. We first generate the minimum and maximum values, then write a for loop to go through each number in this range. If the last two numbers are 70 or 30, we then check if its square fits in 1_2_3_4_5_6_7_8_9_0.&lt;/p&gt;
+&lt;p&gt;Here is an implementation of the previous algorithm.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
+import math
+
+def helper&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;n&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  determines if the given number fits in 1_2_3_4_5_6_7_8_9_0
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in range&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;8,0,-1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+      n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;n / 100&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; n % &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; !&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; i:
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; False;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; True;
+
+def Solution_206&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;:  
+  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  generate the range of answers and check each value
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;  
+  min_val &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;math.sqrt&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;10203040506070809&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; / 10&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+  max_val &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;math.sqrt&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;19293949596979899&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; / 10&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; + 1;
+    
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in range&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;min_val, max_val&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+  &lt;span style=&#34;color:#75715e&#34;&gt;#if the value ends in 3 or 7, we check its square&lt;/span&gt;
+      num &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; i * &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; + 3;
+      &lt;span style=&#34;color:#75715e&#34;&gt;#if accepted, break the loop and print the value&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; helper&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;num*num&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+          break;
+        
+      num &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; i * &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; + 7;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; helper&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;num* num&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+          break;
+  print&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;num * 10&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#result: 1389019170&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations! Now you have figured out three interesting questions from Project Euler. If you find this article interesting, feel free to check out &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/13oqgkZA9Pqa4BGbakiPZVguvAkShETve?usp=sharing&#34;&gt;Screenshots of Solved problems&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

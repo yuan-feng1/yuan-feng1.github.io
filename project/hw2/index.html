@@ -462,7 +462,7 @@
 
     <div class="article-style" itemprop="articleBody">
       <ul>
-<li><strong>Problem 13 Large sum</strong></li>
+<li><strong>Problem 13 Large sum - Solved by 224972</strong></li>
 </ul>
 <p>In this question, we are asked to:</p>
 <p>Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. <a href="https://projecteuler.net/problem=13">link here</a></p>
@@ -590,15 +590,16 @@ yuanfeng@yuans-MacBook-Air <span style="color:#ae81ff">823</span> % python Euler
 <span style="color:#ae81ff">5537376230</span>
 
 </code></pre></div><ul>
-<li><strong>Problem 31 Coin sums</strong></li>
+<li><strong>Problem 31 Coin sums - Solved by 83654</strong></li>
 </ul>
-<p>In this question, we are asked to:</p>
+<p>In this question, we are asked:</p>
 <p>In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:</p>
 <p>1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
 It is possible to make £2 in the following way:</p>
 <p>1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
 How many different ways can £2 be made using any number of coins? <a href="https://projecteuler.net/problem=31">link here</a></p>
-<p>This is a typical problem of <code>Dynamic Programming</code>. Based on the discriptions, the order of the coins does not matter, and there will be enough coins to make each combination. I followed the normal way of solving DP problems by going from a small base case, and dive deeper into more complex cases. <code>Tablation</code> is an optimal choice to reduce the space complexity, I built a table with all the possible combinations given the total amount value.</p>
+<p>This is a typical problem of <code>Dynamic Programming</code>. Based on the descriptions, the order of the coins does not matter, and there will be enough coins to make each combination. I followed the normal way of solving DP problems by going from a small base case, and dive deeper into more complex cases. <code>Tablation</code> is an optimal choice to reduce the space complexity, I built a table with all the possible combinations given the total amount value.</p>
+<p>Here is a table of base case: only the 1 penny is used as indicated in the second column, and as the target increase, there is only one way to reach the targeted amount.</p>
 <table>
 <thead>
 <tr>
@@ -629,6 +630,7 @@ How many different ways can £2 be made using any number of coins? <a href="http
 </tr>
 </tbody>
 </table>
+<p>We then move forward to using both 1 penny and 2 penny coins. The following table shows the ways of coin combinations to reach the targeted amount. Since 0 and 1 are number below 2, only 1 penny is used. As we move to higher value of targets, if the difference between two target values is the same as a given coin, then we have one more possible combination by simply adding one more coin.</p>
 <table>
 <thead>
 <tr>
@@ -659,6 +661,74 @@ How many different ways can £2 be made using any number of coins? <a href="http
 </tr>
 </tbody>
 </table>
+<p>To generalize the previous process, we ran over all the possible coins. For each coin, we modify the table from values in the target column that equals the value of the coin until we reach the final target value. This is a quite straightforward algorithm that could be implemented by the following code in Python:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+def Solution_31<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span>:
+  <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  Dynamic programming to count the number
+</span><span style="color:#e6db74">  of coin combinations
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+  <span style="color:#75715e">#convert the amount to pennies</span>
+	sum <span style="color:#f92672">=</span> target*100
+  <span style="color:#75715e">#total values in the target column</span>
+	ttl <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> + <span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> * sum
+  <span style="color:#75715e">#list of coins to choose from</span>
+ 	coins <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 2, 5, 10, 20, 50, 100, 200<span style="color:#f92672">]</span>
+  <span style="color:#75715e">#as we move towards to coins of larger value, update the table by adding new possible combinations</span> 
+	<span style="color:#66d9ef">for</span> coin in coins:
+		<span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>sum + <span style="color:#ae81ff">1</span> - coin<span style="color:#f92672">)</span>:
+			ttl<span style="color:#f92672">[</span>i + coin<span style="color:#f92672">]</span> +<span style="color:#f92672">=</span> ttl<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>
+  <span style="color:#75715e">#return the result</span>
+	<span style="color:#66d9ef">return</span> str<span style="color:#f92672">(</span>ttl<span style="color:#f92672">[</span>-1<span style="color:#f92672">])</span>
+
+print<span style="color:#f92672">(</span>Solution_31<span style="color:#f92672">(</span>2<span style="color:#f92672">))</span>
+<span style="color:#75715e"># result: 73682</span>
+</code></pre></div><ul>
+<li><strong>Problem 31 Coin sums - Solved by 23296</strong></li>
+</ul>
+<p>In this question, we are asked:</p>
+<p>Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
+where each “_” is a single digit.</p>
+<p>Filling in the blank spaces with 0 or 9 will give us the minimum or maximum value of the square. We take the square root and the range of answer is [1010101010, 1389026623].</p>
+<p>The last digit in the required form is 0, therefore the number we hope to find should also end in 0, this in turn would mean its square will end in two 0s. This will further reduce the range of answers to [101010101, 138902662]. Now we could look at the second-last number. Since its square ends in 900, the target number should end in either 70 or 30.</p>
+<p>Now we have reduced the search range to a much smaller scale. We first generate the minimum and maximum values, then write a for loop to go through each number in this range. If the last two numbers are 70 or 30, we then check if its square fits in 1_2_3_4_5_6_7_8_9_0.</p>
+<p>Here is an implementation of the previous algorithm.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+import math
+
+def helper<span style="color:#f92672">(</span>n<span style="color:#f92672">)</span>:
+  <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  determines if the given number fits in 1_2_3_4_5_6_7_8_9_0
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+  <span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>8,0,-1<span style="color:#f92672">)</span>:
+      n <span style="color:#f92672">=</span> int<span style="color:#f92672">(</span>n / 100<span style="color:#f92672">)</span>;
+      <span style="color:#66d9ef">if</span> n % <span style="color:#ae81ff">10</span> !<span style="color:#f92672">=</span> i:
+          <span style="color:#66d9ef">return</span> False;
+  <span style="color:#66d9ef">return</span> True;
+
+def Solution_206<span style="color:#f92672">()</span>:  
+  <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  generate the range of answers and check each value
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>  
+  min_val <span style="color:#f92672">=</span> int<span style="color:#f92672">(</span>math.sqrt<span style="color:#f92672">(</span>10203040506070809<span style="color:#f92672">)</span> / 10<span style="color:#f92672">)</span>;
+  max_val <span style="color:#f92672">=</span> int<span style="color:#f92672">(</span>math.sqrt<span style="color:#f92672">(</span>19293949596979899<span style="color:#f92672">)</span> / 10<span style="color:#f92672">)</span> + 1;
+    
+  <span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>min_val, max_val<span style="color:#f92672">)</span>:
+  <span style="color:#75715e">#if the value ends in 3 or 7, we check its square</span>
+      num <span style="color:#f92672">=</span> i * <span style="color:#ae81ff">10</span> + 3;
+      <span style="color:#75715e">#if accepted, break the loop and print the value</span>
+      <span style="color:#66d9ef">if</span> helper<span style="color:#f92672">(</span>num*num<span style="color:#f92672">)</span>:
+          break;
+        
+      num <span style="color:#f92672">=</span> i * <span style="color:#ae81ff">10</span> + 7;
+      <span style="color:#66d9ef">if</span> helper<span style="color:#f92672">(</span>num* num<span style="color:#f92672">)</span>:
+          break;
+  print<span style="color:#f92672">(</span>num * 10<span style="color:#f92672">)</span>;
+
+<span style="color:#75715e">#result: 1389019170</span>
+
+</code></pre></div><p>Congratulations! Now you have figured out three interesting questions from Project Euler. If you find this article interesting, feel free to check out <a href="https://projecteuler.net/">Project Euler</a></p>
+<p><a href="https://drive.google.com/drive/folders/13oqgkZA9Pqa4BGbakiPZVguvAkShETve?usp=sharing">Screenshots of Solved problems</a></p>
 
     </div>
 
