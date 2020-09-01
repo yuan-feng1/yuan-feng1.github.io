@@ -3,51 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yuan-feng1.github.io/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example.1/example3/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example.2/example3/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example.1/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example.2/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example.2/example4/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuan-feng1.github.io/courses/example.1/example4/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuan-feng1.github.io/talk/coding/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
@@ -98,11 +53,6 @@
   </url>
   
   <url>
-    <loc>https://yuan-feng1.github.io/courses/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuan-feng1.github.io/authors/admin/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
@@ -145,6 +95,10 @@
   <url>
     <loc>https://yuan-feng1.github.io/post/getting-started/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuan-feng1.github.io/courses/</loc>
   </url>
   
   <url>
