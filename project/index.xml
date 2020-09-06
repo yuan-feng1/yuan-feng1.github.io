@@ -48,7 +48,9 @@ hugo new site site_name
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Select a theme&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I personally enjoy designs of minimalist and the use of white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite. Its GitHub repo could be found &lt;a href=&#34;https://github.com/themefisher/academia-hugo&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I personally enjoy designs of minimalist and the use of white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Then I run the following command line in the terminal to download the contents in themes folder:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cd site_name
 cd themes
