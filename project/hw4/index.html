@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Yuan Feng">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Spotify Songs Data Understanding and managing data is one of the priorities of analysts and data scientists. Relational databases are common and useful tools for performing tasks in selected database. Both querying and building databases are essential functionaries of relational databases. This post will focus on constructing databases in SQL with data from Spotify songs. Various information including track name, album name and track characteristics are provided in this dataset. Analysis will be also performed on the intrumentalness of songs in playlists.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://yuan-feng1.github.io/project/hw4/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.4e3b2f408b00c06405993e164c128cb2.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://yuan-feng1.github.io/project/hw4/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Yuan Feng">
+  <meta property="og:url" content="https://yuan-feng1.github.io/project/hw4/">
+  <meta property="og:title" content="Spotify Song Database | Yuan Feng">
+  <meta property="og:description" content="Spotify Songs Data Understanding and managing data is one of the priorities of analysts and data scientists. Relational databases are common and useful tools for performing tasks in selected database. Both querying and building databases are essential functionaries of relational databases. This post will focus on constructing databases in SQL with data from Spotify songs. Various information including track name, album name and track characteristics are provided in this dataset. Analysis will be also performed on the intrumentalness of songs in playlists."><meta property="og:image" content="https://yuan-feng1.github.io/project/hw4/featured.jpg">
+  <meta property="twitter:image" content="https://yuan-feng1.github.io/project/hw4/featured.jpg"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2020-10-09T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2020-10-09T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Spotify Song Database | Yuan Feng</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>About me</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article article-project py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container split-header">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+        <img class="img-fluid w-100" src="/project/hw4/featured_hu6a7fa8b1fbdbb9c5d4485669d58b73c1_1573878_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
+        
+    </div>
+    <div class="col-lg-8">
+      <h1 itemprop="name">Spotify Song Database</h1>
+
+      
+
+      
+
+
+
+<meta content="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2020-10-09 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Oct 9, 2020</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://yuan-feng1.github.io/project/hw4/&amp;text=Spotify%20Song%20Database" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://yuan-feng1.github.io/project/hw4/&amp;t=Spotify%20Song%20Database" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Spotify%20Song%20Database&amp;body=https://yuan-feng1.github.io/project/hw4/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://yuan-feng1.github.io/project/hw4/&amp;title=Spotify%20Song%20Database" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Spotify%20Song%20Database%20https://yuan-feng1.github.io/project/hw4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://yuan-feng1.github.io/project/hw4/&amp;title=Spotify%20Song%20Database" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <h2 id="spotify-songs-data">Spotify Songs Data</h2>
+<p>Understanding and managing data is one of the priorities of analysts and data scientists. Relational databases are common and useful tools for performing tasks in selected database. Both querying and building databases are essential functionaries of relational databases. This post will focus on constructing databases in SQL with data from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md">Spotify songs</a>. Various information including track name, album name and track characteristics are provided in this dataset. Analysis will be also performed on the intrumentalness of songs in playlists.</p>
+<h2 id="database-basics">Database Basics</h2>
+<p>In order for databased to run efficiently, normalization is a common technique to reduce redundancy in storaging the information.  Normalization derives the relationships of contents and stores the dataset in separate tables.</p>
+<ul>
+<li><strong>First Normal Form (1NF)</strong></li>
+</ul>
+<p>This is the basic requirement for database efficiency where we require four must-have features: Each column name is unique; Atomic values in each cell; The values in one column should belong to one type and the order does not matter.</p>
+<ul>
+<li><strong>Second Normal Form (2NF)</strong></li>
+</ul>
+<p>We then come to Second Normal Form where there are more requirements based on 1NF: Now no partial dependency is allowed. It means that there cannot be dependencies other than the Primary Key, which is a set of values that could uniquely identify a record. And we must find each value based on the complete Primary Key.</p>
+<ul>
+<li><strong>Third Normal Form (3NF)</strong></li>
+</ul>
+<p>In 3NF, besides 1NF and 2NF requirements, we are not allowed to have transitive dependencies: Non-Primary Key columns in the data cannot contain information about the rest of columns.</p>
+<h2 id="our-schema">Our Schema</h2>
+<p>If we know the track ID, we could find its name, release date and artist. And based on the track name, we will then find about album name, album release date, etc. Therefore, the best schema is to separate them into different tables to achieve Third Normal Form:</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Columns Included</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>track_id_playlist_id</td>
+<td>Track ID and Playlist ID</td>
+</tr>
+<tr>
+<td>track_id_album_id</td>
+<td>Track ID and Album ID</td>
+</tr>
+<tr>
+<td>playlist_id_album_id</td>
+<td>Playlist ID and Album ID</td>
+</tr>
+<tr>
+<td>album_id_album_name</td>
+<td>Album ID and Album Name</td>
+</tr>
+<tr>
+<td>album_id_album_date</td>
+<td>Album ID and Release Date</td>
+</tr>
+<tr>
+<td>playlist_id_name</td>
+<td>Playlist ID and Name</td>
+</tr>
+<tr>
+<td>playlist_id_genre</td>
+<td>Playlist ID and Genre</td>
+</tr>
+<tr>
+<td>playlist_id_subgenre</td>
+<td>Playlist ID and Subgenre</td>
+</tr>
+<tr>
+<td>track_id_track_name</td>
+<td>Track ID and Track names</td>
+</tr>
+<tr>
+<td>track_id_track_artist</td>
+<td>Track ID and artist names</td>
+</tr>
+<tr>
+<td>track_id_more_details</td>
+<td>Track ID and other features</td>
+</tr>
+</tbody>
+</table>
+<h2 id="database-constrcution">Database Constrcution</h2>
+<p>With the help of SQLite, database construction is now an easy process, we can connect to the server using just a few lines of code and upload dataframes directly into the created database:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">%load_ext sql
+%sql sqlite://
+%sql PERSIST track_id_album_id;
+%sql PERSIST track_id_playlist_id;
+...
+</code></pre></div><p>Here is detailed process ans source code on my <a href="https://github.com/yuan-feng1/bios-823-2019/blob/master/Yuan_Feng_HW4.ipynb">Github</a>.</p>
+<h2 id="database-test-run">Database Test Run</h2>
+<p>We can test the functionality of the database by running some queries to solve a question of our interest. Here we want to see find the names of all playlists that contain instrumentals.</p>
+<p>Based on the data dictionary, we know songs with &ldquo;instrumentals&rdquo; bigger than .5 are qualified for this question. To find the names of such playlists, we need information from
+&ldquo;track_id_playlist_id&rdquo;, &ldquo;track_id_more_details&rdquo; and &ldquo;playlist_id_name&rdquo;. The following code first selects playlist ID that has instrumental songs and saves as temporary table, then join the &ldquo;playlist_name&rdquo; table to find the names corresponding with these track IDs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">%%sql 
+create table temp as
+<span style="color:#66d9ef">select</span> distinct<span style="color:#f92672">(</span>p.playlist_id<span style="color:#f92672">)</span>
+from track_id_playlist_id as p 
+left join track_id_more_details as t
+on t.track_id <span style="color:#f92672">=</span> p.track_id
+where t.instrumentalness &gt; 0.5;
+
+<span style="color:#66d9ef">select</span> distinct<span style="color:#f92672">(</span>p.playlist_name<span style="color:#f92672">)</span>
+from temp
+left join playlist_id_name as p 
+on p.playlist_id <span style="color:#f92672">=</span> temp.playlist_id
+
+DROP TABLE IF EXISTS temp;
+</code></pre></div><p>Now our database is successfully implemented! As we could see below, the code will return a list of all playlists that contain instrumentals, which means it&rsquo;s running as expected:</p>
+<p><img src="./res.jpg" alt="png"></p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/"></a>
+  
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://yuan-feng1.github.io/">Yuan Feng</a></h5>
+      <h6 class="card-subtitle">Master of Interdisciplinary Data Science</h6>
+      <p class="card-text" itemprop="description">Current NLP Research Assistant at Credit Suisse. Former Data Scientist intern at Amazon &amp; Lenovo &amp; Levels.fyi.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://www.linkedin.com/in/yuanfeng11/" target="_blank" rel="noopener">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/yuan-feng1" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    </div>
+
+    
+    
+    
+    </div>
+  </div>
+</article>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/Twitter" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="skype:echo123?call"  title="Skype Me"><i class="fab fa-skype" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://keybase.io/" target="_blank" rel="noopener" title="Chat on Keybase"><i class="fab fa-keybase" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://discourse.gohugo.io" target="_blank" rel="noopener" title="Discuss on Forum"><i class="fas fa-comments" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
