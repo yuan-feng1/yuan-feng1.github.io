@@ -126,65 +126,8 @@ DROP TABLE IF EXISTS temp;
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://yuan-feng1.github.io/project/hw6/</guid>
-      <description>&lt;h2 id=&#34;spotify-songs-data&#34;&gt;Spotify Songs Data&lt;/h2&gt;
-&lt;p&gt;hhhhhhhhhhhhh&lt;/p&gt;
-&lt;p&gt;bhbchsavjdfbkfbbseflbjse&lt;/p&gt;
+      <description>&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;database-basics&#34;&gt;Database Basics&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Table&lt;/th&gt;
-&lt;th&gt;Columns Included&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;track_id_playlist_id&lt;/td&gt;
-&lt;td&gt;Track ID and Playlist ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;track_id_album_id&lt;/td&gt;
-&lt;td&gt;Track ID and Album ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;playlist_id_album_id&lt;/td&gt;
-&lt;td&gt;Playlist ID and Album ID&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;album_id_album_name&lt;/td&gt;
-&lt;td&gt;Album ID and Album Name&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;album_id_album_date&lt;/td&gt;
-&lt;td&gt;Album ID and Release Date&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;playlist_id_name&lt;/td&gt;
-&lt;td&gt;Playlist ID and Name&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;playlist_id_genre&lt;/td&gt;
-&lt;td&gt;Playlist ID and Genre&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;playlist_id_subgenre&lt;/td&gt;
-&lt;td&gt;Playlist ID and Subgenre&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;track_id_track_name&lt;/td&gt;
-&lt;td&gt;Track ID and Track names&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;track_id_track_artist&lt;/td&gt;
-&lt;td&gt;Track ID and artist names&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;track_id_more_details&lt;/td&gt;
-&lt;td&gt;Track ID and other features&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 </description>
     </item>
     
