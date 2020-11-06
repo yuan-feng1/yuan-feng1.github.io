@@ -6,10 +6,61 @@
     <description>Recent content in Projects on Yuan Feng</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://yuan-feng1.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dahsboard on US PHD Recipients</title>
+      <link>https://yuan-feng1.github.io/project/hw6/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/hw6/</guid>
+      <description>&lt;h2 id=&#34;phd-in-us&#34;&gt;PHD in US&lt;/h2&gt;
+&lt;p&gt;This dataset comes from &lt;a href=&#34;https://ncses.nsf.gov/pubs/nsf19301/survey-description&#34;&gt;PhDs awarded in the US&lt;/a&gt;. It collects data on the number and characteristics of individuals receiving research doctoral degrees from U.S. academic institutions. Based on its official website, this survey included surveys from individuals receiving a research doctorate from a U.S. academic institutions in various fields.&lt;/p&gt;
+&lt;h2 id=&#34;dash--plotly&#34;&gt;Dash &amp;amp; Plotly&lt;/h2&gt;
+&lt;p&gt;Dash is a Open Source Python library for creating reactive, Web-based applications. Dash is a user interface library for creating analytical web applications. Those who use Python for data analysis, data exploration, visualization, modelling, instrument control, and reporting will find immediate use for Dash.&lt;/p&gt;
+&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
+&lt;p&gt;Online dashboard can be found &lt;a href=&#34;http://noafeng72.pythonanywhere.com&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are three plots included in this Dashboard. I included screenshots in this post. For the interactive version.
+Dashboard here](&lt;a href=&#34;http://noafeng72.pythonanywhere.com&#34;&gt;http://noafeng72.pythonanywhere.com&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This table illustrates the median salary of PHDs in 2017. As we could see, there is a quite large between different fields. The salaries in Math &amp;amp; CS are higher than the rest of areas overall sectors, and PHDs who work in the industry have higher salaries than rest of sectors overall.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This table illustrates the debt situation of PHDs from 2008 to 2017. The majority of PHDs have no debts, while there are significant number of PHDs who have quite high debts (over 30,000 USD) in their course of PHD study. Based on this graph, the financial situation of PHDs is overall stable.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This table illustrates the number of PHDs recipients from 2008 to 2017. We can see from the plot for each field, the number of PHDs recipients are increasing. To be more specific, the area of life sciences has the biggest increase, this is a sign of scientific focus of the US society in life science areas such as healthcare.
+Overall, the number of PHDs recipients and this trend is seemingly to maintain, I can estimate that there will be more PHDs in the following years.&lt;/p&gt;
+&lt;h2 id=&#34;dash-code&#34;&gt;Dash Code&lt;/h2&gt;
+&lt;p&gt;Overall, the code style in Dash is similar to other plotting packages. There are plenty of tutorials on plotly official website for Python implementation of Dash. Following is a part of my full code, that calls the part of figure and place them onto the the dashboard.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;app.layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html.Div&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+    html.H1&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;children&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Dashboard on Science &amp;amp; Engineering Doctorates&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fig22&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bar1&amp;#39;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Slider&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;year1&amp;#39;&lt;/span&gt;,
+        min&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2008,
+        max&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2017,
+        value&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2008,
+        marks&lt;span style=&#34;color:#f92672&#34;&gt;={&lt;/span&gt;str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;year&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;year&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; year in year_unique&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+        step&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None
+    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Number of Doctorate recipients 1987 - 2007&amp;#39;&lt;/span&gt;,
+        figure&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;fig11
+    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;One easy approach is to use:&lt;a href=&#34;https://www.pythonanywhere.com/&#34;&gt;pythonanywhere&lt;/a&gt;. I followed &lt;a href=&#34;https://towardsdatascience.com/the-easiest-way-to-deploy-your-dash-app-for-free-f92c575bb69e&#34;&gt;this&lt;/a&gt; introduction on Medium.&lt;/p&gt;
+&lt;p&gt;First, we need to sign up to pythonanywhere.com by creating a Beginner account. On the top bar go to Web &amp;gt; Add a new web app, the select Flask as the Python Web framework. You need to choose the version of Python that works best for your peoject.&lt;/p&gt;
+&lt;p&gt;The next step is uploading the python file. On the top bar go to Files and, in the Directories sidebar, click on mysite/. You&amp;rsquo;ll find a file named flask_app.py inside. You can delete the default empty python file.&lt;/p&gt;
+&lt;p&gt;The third step is to install the dependencies. On the Consoles tap, we’ll find the Bash console, this is the same as well as the Python console. Then we can start uploading the files we generated.&lt;/p&gt;
+&lt;p&gt;Last step is to change the code in Web and in the Code section after opening the WSGI configuration file based on your code and board implementation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./s.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Star Wars Data with Request</title>
