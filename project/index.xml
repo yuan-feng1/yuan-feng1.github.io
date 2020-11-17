@@ -6,10 +6,81 @@
     <description>Recent content in Projects on Yuan Feng</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://yuan-feng1.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deep Learning - Insects Classification</title>
+      <link>https://yuan-feng1.github.io/project/hw7/</link>
+      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/hw7/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction-to-cnn&#34;&gt;Introduction to CNN&lt;/h2&gt;
+&lt;p&gt;A convolutional neural network (CNN) is a specific type of artificial neural network that uses perceptrons, a machine learning unit algorithm, for supervised learning, to analyze data. CNNs apply to image processing, natural language processing and other kinds of cognitive tasks. They are also the go-to deep learning architecture for computer vision tasks, such as object detection, image segmentation, facial recognition, etc.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;image-classification&#34;&gt;Image Classification&lt;/h2&gt;
+&lt;p&gt;Image classification is one of popular use-case for CNN. In this hands-on tutorial, we will leverage Keras, a python based deep learning framework to build the CNN model to classify the type of insects from &lt;a href=&#34;https://www.insectimages.org/index.cfm&#34;&gt;insect images&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Classification is the process of categorizing images based on their features. Theses feature are usually represented by the significant edges in an image, the level of pixel density, the different pixel values, etc. With regard to the insect dataset, the shapes and edges of insects could be different, the colors in pixels values may also vary, and these indicators may help indentify the specific insect images, and we hope to find thses specific pattern across these images by converting them into matrices of pixel values and further feed these data into deep learning models.&lt;/p&gt;
+&lt;p&gt;One example of this preprocessing is shown below. After converting the images into matrices of pixels, we could construct the original image with the following code, which will return the first image in train dataset.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;img &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; plt.imshow&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;X_train&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;][&lt;/span&gt;:,:,::-1&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                                                 Figure 1 - Image of Dragonfly
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;components-in-cnn&#34;&gt;Components in CNN&lt;/h2&gt;
+&lt;p&gt;The workflow is as follows: For each input image in CNN models, it will pass it through a series of convolution layers with filters (Kernals), then the Pooling process, then will pass through fully connected layers (FC) and lastly, apply Softmax function to classify an object, and return the probabilistic values between 0 and 1.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Convolution&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A convolution is a mathematical operation applied on a matrix. This matrix is usually the image represented in the form of pixels/numbers. The convolution operation extracts the features from the image.
+&lt;img src=&#34;./1.gif&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                                                 Figure 2 - Convolution Example
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Padding is simply a process of adding layers of zeros to our input images so as to avoid the problems mentioned above. This prevents shrinking as, if p = number of layers of zeros added to the border of the image, then our (n x n) image becomes (n + 2p) x (n + 2p) image after padding&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ReLu layer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The importance of ReLU is to introduce non-linearity in our CNN model. This is an element-wise operation (applied per pixel) which will replaces all negative pixel values by 0 in the feature map. Convolution is a linear operation – element wise matrix multiplication and addition, so we account for non-linearity by introducing a non-linear function like ReLU.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pooling&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The reason why we introduce Spatial Pooling (also called subsampling or downsampling) is that it will reduce the dimensionality of each feature map but retains the most important information. Spatial Pooling can be of different types: Max, Average, Sum etc. In case of Max Pooling, we define a spatial neighborhood (for example, a 2×2 window) and take the largest element from the rectified feature map within that window. In cases of Average Pooling, we could take the average values, and in case of sum pooling, we will use the sum of all elements in that window. In practice, Max Pooling has been shown to perform the best.
+&lt;img src=&#34;./5.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                                                     Figure 2 - Pooling Example
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Fully connected layer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Then we will flatten the output of the last ReLu layer. (Flattening means we convert it to a vector.) The vector values are then connected to all neurons in the fully connected layer. When the model is able to detect higher level features in the input images, it can then function as an input for a fully connected layer.
+&lt;img src=&#34;./6.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                                                     Figure 2 - Fully connected layer Example
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;code-implementation&#34;&gt;Code Implementation&lt;/h2&gt;
+&lt;p&gt;Below is the Python keras inplementation of using the insects dataset to classify the type of insects. After pre-processing mentioned previously, we then construct the CNN model and fit the train dataset into the model. Here I use 50 epochs and batch size of 64, and as shown in the screenshot, the accuracy kept increasing as the training proceed.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;model &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;  keras.models.Sequential&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Conv2D&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;32, &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;5, 5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;, input_shape&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;84,84,3&lt;span style=&#34;color:#f92672&#34;&gt;)))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;MaxPooling2D&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pool_size&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;2, 2&lt;span style=&#34;color:#f92672&#34;&gt;)))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Conv2D&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;32, &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;5, 5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;MaxPooling2D&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pool_size&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;2, 2&lt;span style=&#34;color:#f92672&#34;&gt;)))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Flatten&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Dense&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1000, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Dropout&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.5&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Dense&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;500, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Dropout&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.5&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Dense&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;250, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+model.add&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Dense&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;10, activation&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;softmax&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then after the training is completed, the model will be compiled and fit on train dataset. The accuracy on test data is 0.73 and loss is 1.60. These are not optimal as of now, there may be overfitting issues, which could be fixed by further tuning the model and using cross-validation techniques in the future.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;model.compile&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+              loss&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;categorical_crossentropy&amp;#39;&lt;/span&gt;,
+              metrics&lt;span style=&#34;color:#f92672&#34;&gt;=[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;accuracy&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;
+model.fit&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;X_train, y_train, epochs&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;50, batch_size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;64&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+test_loss, test_acc &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; model.evaluate&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;X_test, y_test&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./4.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cs231n.github.io/convolutional-networks/&#34;&gt;Convolutional Neural Networks (CNNs / ConvNets)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/&#34;&gt;An Intuitive Explanation of Convolutional Neural Networks&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Dahsboard on US PHD Recipients</title>
