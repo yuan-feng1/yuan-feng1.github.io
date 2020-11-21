@@ -696,5 +696,236 @@ git push origin master
 </description>
     </item>
     
+    <item>
+      <title>Predict Patient Discharge Location with MIMIC Dataset</title>
+      <link>https://yuan-feng1.github.io/project/final/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/final/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;The utilization of hospital resources is an urgent topic worldwide. Often we could hear in the news, especially in times of the global pandemic, of the space shortage in hospitals for patients in need. The main goal of this project is to construct a classification system built with state-of-art machine learning models to predict the discharge location of patients with ICU admission based on a series of records, such as demographics, vital signs, laboratory tests, medications information, and so on.&lt;/p&gt;
+&lt;p&gt;The major focus of our prediction will be on SNF which stands for skilled nursing facilities and other hospitals, Since the number of patients assigned to these facilities best represents the allocation of medical resources and hospital capacity.&lt;/p&gt;
+&lt;h2 id=&#34;my-responsibility&#34;&gt;My Responsibility&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Initial operations on accessing the data &amp;amp; Data imputation on missing values.&lt;/li&gt;
+&lt;li&gt;Implemented Random Forest modeling with a series of hyperparameter tuning for optimal performance.&lt;/li&gt;
+&lt;li&gt;Designed workflow and layout of interactive ML real-time prediction using Flask app.&lt;/li&gt;
+&lt;li&gt;Finished the real-time prediction engine using machine learning models.&lt;/li&gt;
+&lt;li&gt;Data product &amp;amp; Github aggregation and calibration; Gthub readme organizations &amp;amp; updates (cooperated with all team members).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;audience&#34;&gt;Audience&lt;/h2&gt;
+&lt;p&gt;Our platform aims to serve the hospital administration team, the inquisitive researchers and curious patients. The multi-page dashboard serves as a tool to monitor occupancy and clinical results of patients, and provide comprehensive demonstration. The online ML prediction model provides real-time results of clinical outcome, which will aid in decision-making process of patients and doctors.&lt;/p&gt;
+&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
+&lt;p&gt;Our project will be able to demonstrate the hospital bed occupancy and the usage of hospital resources so that the doctors are able to make better decisions. Moreover, it will display vivid visualizations of the overall trend of the patients in hospital. And our platform will help not only the doctors by the patients and inquisitive people by offering an online machine learning platform.&lt;/p&gt;
+&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://mimic.physionet.org/&#34;&gt;MIMIC data&lt;/a&gt; is a public-available database which is comprised of ~60,000 deidentified large-scale health-related data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Data Preprocessing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Data pre-processing was conducted using multiple packages in Python, including pandas and numpy. Subsequent tasks include looking at the distribution of each varaible, converting to appropriate datatype，then checking for the missingness of the data and conducted imputation and testing performance on dummy model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Technical Stack I mastered&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Data processing: pandas, numpy / Visualization: pyplot, seaborn&lt;/p&gt;
+&lt;p&gt;Machine Learning Implementation: scikit-learn, optuna, xgboost&lt;/p&gt;
+&lt;p&gt;Deployment: dash, Flask&lt;/p&gt;
+&lt;p&gt;Git version control: branch set-up, push, commit, merge, pull, resolve issues&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;dashboard-eda&#34;&gt;Dashboard EDA&lt;/h2&gt;
+&lt;p&gt;First, we looked at the distribution of the MIMIC dataset. The majority of patients were discharged to their own home(58.7%), and the second-biggest location is SNF(19.9%), and the rest were sent to other facility or dead. The number of records placed on the right is a number-based illustration of this distribution.
+&lt;img src=&#34;./1.png&#34; alt=&#34;png&#34;&gt;
+Secondly, this stacked bar chart demonstrated the admission type of patients. The majority of admitted patients were in the emergency category, newborn and elective comes second and urgent cases are the least. This indicates the classification results in the dataset was not balanced, which we will address in the modeling process for better performance.
+&lt;img src=&#34;./2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We also plotted the confusin matrix to show the correlation of this dataset. Overall, there was not much collinearity issue in this dataset.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;model-analysis&#34;&gt;Model Analysis&lt;/h2&gt;
+&lt;p&gt;We utilized multiple machine learning algorithms to approach this classfication problem. Based on our research, the currently most popular methods include Random Forest, Xgboost, SVM and Naive Bayes. After conducting data preprocessing and dummy model as a baseline comparison, we developed the each of the models with hyper-parameter tuning for model training, and based on a series of metrics such as accuracy, precision, recall and F1, selected the optimal model for future analysis.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;random_grid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n_estimators&amp;#39;&lt;/span&gt;: n_estimators,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_features&amp;#39;&lt;/span&gt;: max_features,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_depth&amp;#39;&lt;/span&gt;: max_depth,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_split&amp;#39;&lt;/span&gt;: min_samples_split,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_leaf&amp;#39;&lt;/span&gt;: min_samples_leaf,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bootstrap&amp;#39;&lt;/span&gt;: bootstrap&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Use the random grid to search for best hyperparameters&lt;/span&gt;
+rf &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomForestClassifier&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Random search of parameters, using 3 fold cross validation, search across 100 different combinations, and use all available cores&lt;/span&gt;
+rf_random &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomizedSearchCV&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;estimator &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; rf, param_distributions &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; random_grid, n_iter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 100, cv &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 3, verbose&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2, random_state&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;42, n_jobs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Fit the random search model&lt;/span&gt;
+rf_random.fit&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;X_train, y_train&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;           
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;random-forest-modeling&#34;&gt;Random Forest Modeling&lt;/h2&gt;
+&lt;p&gt;With regards to model development process, I built the Random Forest model, which is an ensemble learning method. It is trained on different parts of the data, and builds multiple decision trees during the training process then return the prediction by finding the most votes from individual trees. The major advantages of Random Forests is that it helps with our goal of  boosting model performance and solving overfitting issues, but these advantages may come at the expense of some loss of interpretability.&lt;/p&gt;
+&lt;p&gt;For thr hyperparameter tuning process, I initially generated a grid of possible parameters including &amp;ldquo;n_estimators&amp;rdquo;, &amp;ldquo;min_samples_split&amp;rdquo;, &amp;ldquo;min_samples_leaf&amp;rdquo;, &amp;ldquo;max_features&amp;rdquo;, &amp;ldquo;max_depth&amp;rdquo;,  and &amp;ldquo;bootstrap&amp;rdquo; for the model to choose from.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#parameters of the best model&lt;/span&gt;
+rf_random.best_params_
+
+&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n_estimators&amp;#39;&lt;/span&gt;: 1100,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_split&amp;#39;&lt;/span&gt;: 10,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_leaf&amp;#39;&lt;/span&gt;: 2,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_features&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sqrt&amp;#39;&lt;/span&gt;,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_depth&amp;#39;&lt;/span&gt;: 50,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bootstrap&amp;#39;&lt;/span&gt;: False&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With the help of RandomizedSearchCV function, performed gird search to find the set of parameters that returns highest accuracy values. After completing the tuning process, the best parameters are shown above.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./rf.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Random has proved to be a very powerful model for classfication problems. The accuracy has boosted to 0.99 on train data and reached 0.68 on test data. The metrics were also satisfying for precision, recall and F1, indicating it performed well on four categories as well.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Table 1 - Model evaluations on train dataset&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Train&lt;/th&gt;
+&lt;th&gt;Dummy Classifier&lt;/th&gt;
+&lt;th&gt;Logistic Regression&lt;/th&gt;
+&lt;th&gt;SVM&lt;/th&gt;
+&lt;th&gt;KNN&lt;/th&gt;
+&lt;th&gt;Random Forest&lt;/th&gt;
+&lt;th&gt;Xgboost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Accuracy&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.70&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Precision&lt;/td&gt;
+&lt;td&gt;0.34&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.76&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Recall&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.70&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F1&lt;/td&gt;
+&lt;td&gt;0.43&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.75&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The above table shows all of modeling results. All models performed quite well after cross-validation and tuning process, with an accuracy above 64% for all models except dummy model. Random Forest ranks top in terms of performance on train data. It has almost perfect results in terms of classification.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Table 2 - Model evaluations on test dataset&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Test&lt;/th&gt;
+&lt;th&gt;Dummy Classifier&lt;/th&gt;
+&lt;th&gt;Logistic Regression&lt;/th&gt;
+&lt;th&gt;SVM&lt;/th&gt;
+&lt;th&gt;KNN&lt;/th&gt;
+&lt;th&gt;Random Forest&lt;/th&gt;
+&lt;th&gt;Xgboost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Accuracy&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Precision&lt;/td&gt;
+&lt;td&gt;0.34&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.63&lt;/td&gt;
+&lt;td&gt;0.55&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Recall&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F1&lt;/td&gt;
+&lt;td&gt;0.43&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.62&lt;/td&gt;
+&lt;td&gt;0.53&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;However, when we look at results on test data, random forest model performed roughly the same as Xgboost modeling. The accuracy of Random Forest is 0.68, which is much lower than on train data, which indictas potential issues of overfitting. Based on a combination of performance and consistency, we chose Xgboost which has the highest accuracy of 68% with a overall satisfactory performance on all four categories. All F1, recall and precision values are aligned.&lt;/p&gt;
+&lt;h2 id=&#34;reason-why-xgboost-outperformed&#34;&gt;Reason why Xgboost outperformed&lt;/h2&gt;
+&lt;p&gt;Our results are aligned in practice of various data science competitions and it also makes sense because for a theoretical standpoint.
+Xgboost is essentially a very powerful model especially for classification problems. XGBoost stands for extreme gradient boosting. Boosting is an ensemble technique which trains models in sequence rather than training models separately. Each new model will correct the errors made by the previous ones and are added sequentially until no further improvements are available.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;online-ml-real-time-prediction&#34;&gt;Online ML Real-Time Prediction&lt;/h2&gt;
+&lt;p&gt;Online real-time prediction is one of the unique features of our data product. I implemented this platform, from designing the initial layout, seraching for best tools to implementation. The backend I decided to use is Flask, because it is lightweight with simple syntax comparing with other backend options, and it is based on Python which has higher popularity in DS field. Moreover, Flask app could be combined with Dash to create fascinating visualization effects, and it integrates perfectly with the dashboard.&lt;/p&gt;
+&lt;p&gt;Total of 10 variables are available for users to manually input with descriptions by the side. Five authors features are the top five are featuring protest plot while the rest are features with higher availability to the general public. There are over 80 features in our data and they will be unrealistic for user input every variable. Below is the input section:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./10.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This was a great opportunity for me to brush-up on web dev skills. I used HTML and CSS for writing the structure and decoration of this interface, and callbacks in Javascript to render the inputs. Here shows a part of code to demonstarte this process.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;server &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; flask.Flask&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;__name__&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dash.Dash&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;__name__, server&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;server,external_stylesheets&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;external_stylesheets&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+
+layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html.Div&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+    dbc.Container&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+        dbc.Row&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt; dbc.Col&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;html.H1&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Real Time Prediction Serverless App&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mb-2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+    dbc.Container&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+        dbc.Row&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;dbc.Col&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;dbc.Card&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;html.H3&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;children&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Input Features&amp;#39;&lt;/span&gt;,className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text-center text-light bg-dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, body&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True, color&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mt-4 mb-4&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)])&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+    dbc.FormGroup&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;dbc.Label&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Binary Input: if insurance type is &amp;#39;medicare&amp;#39; then 1 else 0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+        dbc.Input&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INSURANCE_Medicare&amp;#34;&lt;/span&gt;,type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;number&amp;#34;&lt;/span&gt;, placeholder&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Enter or select...&amp;#34;&lt;/span&gt;,min&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0, max&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+ 
+@app.callback&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+    Output&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;out&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;children&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Input&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n_clicks&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)]&lt;/span&gt;,
+    
+    state&lt;span style=&#34;color:#f92672&#34;&gt;=[&lt;/span&gt;State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Age&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Gender&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HeartRate_Mean&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Glucose_Mean&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Therefore, besides these 10 selected features, I used mode or mean of the rest remaining variables available to public such as age, sex, and heart rate level, etc.There are over 80 features in our data and it will be unrealistic for user to input every variable. Therefore besides these 10 selected features, we use mod or mean of the rest remaining variables.&lt;/p&gt;
+&lt;p&gt;There are over 80 features in our data and they will be unrealistic for user input every variable. Therefore besides these 10 selected features, we use mode or meaning of the remaining variables.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./6.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Once the user finished all the required input. Upon clicking the go button our cloud-based model will display the most accurate prediction based on the input. Here we can see that the best gas according to my input is home which means the patient with such features is most likely to be discharged to home.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;my-takeaways-from-this-project&#34;&gt;My takeaways from this project&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m really glad to have this great opportunity to work with MIMIC EHR dataset, I have always been intrigued by application of Data Science in biomedical filed and this final project marked a milestone on my trajectory into personal &amp;ldquo;wild west&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;This was a good combination of skills learned in class and real-world challenges, and I feel very satisfied to successfully implement a complete inteface based on ML modeling and analysis. Big shout-out to my teammates for a semester&amp;rsquo;s hard work.😊 Thanks to Prof. Chan and TA for all the precious instructions &amp;amp; suggestions.🎉&lt;/p&gt;
+&lt;p&gt;I hope you&amp;rsquo;re enjoying this blog article and find our data product interesting. Here is the &lt;a href=&#34;https://bios823-mimic-dashboard.ue.r.appspot.com/deploy_app&#34;&gt;Interactive App&lt;/a&gt;. &lt;a href=&#34;https://github.com/biostats823-final-project/MIMIC-Predictive-Modeling&#34;&gt;GitHub Link of models&lt;/a&gt; is here. &lt;a href=&#34;https://github.com/biostats823-final-project/MIMIC-Dashboard&#34;&gt;GitHub Link of dashboard&lt;/a&gt; can be found here.&lt;/p&gt;
+&lt;p&gt;Thanks for reading！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Plotly website &lt;a href=&#34;https://plotly.com/&#34;&gt;https://plotly.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
