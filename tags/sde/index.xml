@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SDE on Yuan Feng</title>
+    <link>https://yuan-feng1.github.io/tags/sde/</link>
+    <description>Recent content in SDE on Yuan Feng</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://yuan-feng1.github.io/tags/sde/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What to Eat - AI mobile Restaurant Recommender</title>
+      <link>https://yuan-feng1.github.io/project/eatnow/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/eatnow/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;What to Eat is an AI-based mobile restaurant recommendation app which basically recommends restaurant by learning user preferences. The tools used for implementation were React-Native for frontend and Django for backend.&lt;/p&gt;
+&lt;p&gt;Here are the icons for What to Eat:
+&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;dash--plotly&#34;&gt;Dash &amp;amp; Plotly&lt;/h2&gt;
+&lt;p&gt;Dash is a Open Source Python library for creating reactive, Web-based applications. Dash is a user interface library for creating analytical web applications. Those who use Python for data analysis, data exploration, visualization, modelling, instrument control, and reporting will find immediate use for Dash.&lt;/p&gt;
+&lt;h2 id=&#34;landing-pages&#34;&gt;Landing Pages&lt;/h2&gt;
+&lt;p&gt;Upon opening the app, a short animation will pop up, allowing for selecting several cuisines of your favourotes and several other criterias. Clicing on the bubble will turn it into dark version.&lt;/p&gt;
+&lt;p&gt;The landing pages look like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tinder-like-swiping-animation&#34;&gt;Tinder-like Swiping Animation&lt;/h2&gt;
+&lt;p&gt;Tinder like animation was applied to the main screens when user is swiping the cards. This enabled smooth viewing and swiping experience. I researched and found shared-element-transition was supported in React Native for image transition. Location and filter functions are located on left-top and right-top of the screen, where you could re-locate your postion and pick type of cuisines and ratings for more accurate feeds. In the middle part of screen, you could switch to your like history and review your past selections&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./all.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tf-idf-algorithms&#34;&gt;TF-IDF Algorithms&lt;/h2&gt;
+&lt;p&gt;TF-IDF (term frequency–inverse document frequency) is essentially an vector written by hand, and then we can calculate the similarity between vectors. In my case, the vector is the restaurant, and the keywords are the menu items. Content based filtering was conducted by recommending restaurants similar to user favorite restaurants.&lt;/p&gt;
+&lt;p&gt;The raw code can be found &lt;a href=&#34;https://github.com/greatday4april/what-to-eat-ml-backend&#34;&gt;here&lt;/a&gt;(where my username was listed “24451yolanda”). We are still in the process of lauching to IOS and Android strore - stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Yuan Feng">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Introduction to CNN A convolutional neural network (CNN) is a specific type of artificial neural network that uses perceptrons, a machine learning unit algorithm, for supervised learning, to analyze data. CNNs apply to image processing, natural language processing and other kinds of cognitive tasks. They are also the go-to deep learning architecture for computer vision tasks, such as object detection, image segmentation, facial recognition, etc.
+Image Classification Image classification is one of popular use-case for CNN.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://yuan-feng1.github.io/project/insect/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.4e3b2f408b00c06405993e164c128cb2.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://yuan-feng1.github.io/project/insect/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Yuan Feng">
+  <meta property="og:url" content="https://yuan-feng1.github.io/project/insect/">
+  <meta property="og:title" content="Deep Learning - Insects Classification | Yuan Feng">
+  <meta property="og:description" content="Introduction to CNN A convolutional neural network (CNN) is a specific type of artificial neural network that uses perceptrons, a machine learning unit algorithm, for supervised learning, to analyze data. CNNs apply to image processing, natural language processing and other kinds of cognitive tasks. They are also the go-to deep learning architecture for computer vision tasks, such as object detection, image segmentation, facial recognition, etc.
+Image Classification Image classification is one of popular use-case for CNN."><meta property="og:image" content="https://yuan-feng1.github.io/project/insect/featured.jpg">
+  <meta property="twitter:image" content="https://yuan-feng1.github.io/project/insect/featured.jpg"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2021-03-14T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2021-03-14T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Deep Learning - Insects Classification | Yuan Feng</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>About me</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article article-project py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container split-header">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+        <img class="img-fluid w-100" src="/project/insect/featured_hue32a62e0b6d1ee262c2af64e2680738a_173980_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
+        
+    </div>
+    <div class="col-lg-8">
+      <h1 itemprop="name">Deep Learning - Insects Classification</h1>
+
+      
+
+      
+
+
+
+<meta content="2021-03-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2021-03-14 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 14, 2021</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://yuan-feng1.github.io/project/insect/&amp;text=Deep%20Learning%20-%20Insects%20Classification" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://yuan-feng1.github.io/project/insect/&amp;t=Deep%20Learning%20-%20Insects%20Classification" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Deep%20Learning%20-%20Insects%20Classification&amp;body=https://yuan-feng1.github.io/project/insect/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://yuan-feng1.github.io/project/insect/&amp;title=Deep%20Learning%20-%20Insects%20Classification" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Deep%20Learning%20-%20Insects%20Classification%20https://yuan-feng1.github.io/project/insect/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://yuan-feng1.github.io/project/insect/&amp;title=Deep%20Learning%20-%20Insects%20Classification" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p><img src="./0.png" alt="png"></p>
+<h2 id="introduction-to-cnn">Introduction to CNN</h2>
+<p>A convolutional neural network (CNN) is a specific type of artificial neural network that uses perceptrons, a machine learning unit algorithm, for supervised learning, to analyze data. CNNs apply to image processing, natural language processing and other kinds of cognitive tasks. They are also the go-to deep learning architecture for computer vision tasks, such as object detection, image segmentation, facial recognition, etc.</p>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="image-classification">Image Classification</h2>
+<p>Image classification is one of popular use-case for CNN. In this hands-on tutorial, we will leverage Keras, a python based deep learning framework to build the CNN model to classify the type of insects from <a href="https://www.insectimages.org/index.cfm">insect images</a>.</p>
+<p>Classification is the process of categorizing images based on their features. Theses feature are usually represented by the significant edges in an image, the level of pixel density, the different pixel values, etc. With regard to the insect dataset, the shapes and edges of insects could be different, the colors in pixels values may also vary, and these indicators may help indentify the specific insect images, and we hope to find thses specific pattern across these images by converting them into matrices of pixel values and further feed these data into deep learning models.</p>
+<p>One example of this preprocessing is shown below. After converting the images into matrices of pixels, we could construct the original image with the following code, which will return the first image in train dataset.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">img <span style="color:#f92672">=</span> plt.imshow<span style="color:#f92672">(</span>X_train<span style="color:#f92672">[</span>0<span style="color:#f92672">][</span>:,:,::-1<span style="color:#f92672">])</span>
+</code></pre></div><p><img src="./2.png" alt="png"></p>
+<pre><code>                                                 Figure 1 - Image of Dragonfly
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="./0.png" alt="png"></p>
+<h2 id="components-in-cnn">Components in CNN</h2>
+<p>The workflow is as follows: For each input image in CNN models, it will pass it through a series of convolution layers with filters (Kernals), then the Pooling process, then will pass through fully connected layers (FC) and lastly, apply Softmax function to classify an object, and return the probabilistic values between 0 and 1.</p>
+<p><strong>Convolution</strong></p>
+<p>A convolution is a mathematical operation applied on a matrix. This matrix is usually the image represented in the form of pixels/numbers. The convolution operation extracts the features from the image.
+<img src="./1.gif" alt="png"></p>
+<pre><code>                                                 Figure 2 - Convolution Example
+</code></pre>
+<p><strong>Padding</strong></p>
+<p>Padding is simply a process of adding layers of zeros to our input images so as to avoid the problems mentioned above. This prevents shrinking as, if p = number of layers of zeros added to the border of the image, then our (n x n) image becomes (n + 2p) x (n + 2p) image after padding</p>
+<p><strong>ReLu layer</strong></p>
+<p>The importance of ReLU is to introduce non-linearity in our CNN model. This is an element-wise operation (applied per pixel) which will replaces all negative pixel values by 0 in the feature map. Convolution is a linear operation – element wise matrix multiplication and addition, so we account for non-linearity by introducing a non-linear function like ReLU.</p>
+<p><strong>Pooling</strong></p>
+<p>The reason why we introduce Spatial Pooling (also called subsampling or downsampling) is that it will reduce the dimensionality of each feature map but retains the most important information. Spatial Pooling can be of different types: Max, Average, Sum etc. In case of Max Pooling, we define a spatial neighborhood (for example, a 2×2 window) and take the largest element from the rectified feature map within that window. In cases of Average Pooling, we could take the average values, and in case of sum pooling, we will use the sum of all elements in that window. In practice, Max Pooling has been shown to perform the best.
+<img src="./5.png" alt="png"></p>
+<pre><code>                                                     Figure 2 - Pooling Example
+</code></pre>
+<p><strong>Fully connected layer</strong></p>
+<p>Then we will flatten the output of the last ReLu layer. (Flattening means we convert it to a vector.) The vector values are then connected to all neurons in the fully connected layer. When the model is able to detect higher level features in the input images, it can then function as an input for a fully connected layer.
+<img src="./6.png" alt="png"></p>
+<pre><code>                                                     Figure 2 - Fully connected layer Example
+</code></pre>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="code-implementation">Code Implementation</h2>
+<p>Below is the Python keras inplementation of using the insects dataset to classify the type of insects. After pre-processing mentioned previously, we then construct the CNN model and fit the train dataset into the model. Here I use 50 epochs and batch size of 64, and as shown in the screenshot, the accuracy kept increasing as the training proceed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">model <span style="color:#f92672">=</span>  keras.models.Sequential<span style="color:#f92672">()</span>
+model.add<span style="color:#f92672">(</span>Conv2D<span style="color:#f92672">(</span>32, <span style="color:#f92672">(</span>5, 5<span style="color:#f92672">)</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_shape<span style="color:#f92672">=(</span>84,84,3<span style="color:#f92672">)))</span>
+model.add<span style="color:#f92672">(</span>MaxPooling2D<span style="color:#f92672">(</span>pool_size<span style="color:#f92672">=(</span>2, 2<span style="color:#f92672">)))</span>
+model.add<span style="color:#f92672">(</span>Conv2D<span style="color:#f92672">(</span>32, <span style="color:#f92672">(</span>5, 5<span style="color:#f92672">)</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span><span style="color:#f92672">))</span>
+model.add<span style="color:#f92672">(</span>MaxPooling2D<span style="color:#f92672">(</span>pool_size<span style="color:#f92672">=(</span>2, 2<span style="color:#f92672">)))</span>
+model.add<span style="color:#f92672">(</span>Flatten<span style="color:#f92672">())</span>
+model.add<span style="color:#f92672">(</span>Dense<span style="color:#f92672">(</span>1000, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span><span style="color:#f92672">))</span>
+model.add<span style="color:#f92672">(</span>Dropout<span style="color:#f92672">(</span>0.5<span style="color:#f92672">))</span>
+model.add<span style="color:#f92672">(</span>Dense<span style="color:#f92672">(</span>500, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span><span style="color:#f92672">))</span>
+model.add<span style="color:#f92672">(</span>Dropout<span style="color:#f92672">(</span>0.5<span style="color:#f92672">))</span>
+model.add<span style="color:#f92672">(</span>Dense<span style="color:#f92672">(</span>250, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span><span style="color:#f92672">))</span>
+model.add<span style="color:#f92672">(</span>Dense<span style="color:#f92672">(</span>10, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;softmax&#39;</span><span style="color:#f92672">))</span>
+</code></pre></div><p><img src="./3.png" alt="png"></p>
+<p>Then after the training is completed, the model will be compiled and fit on train dataset. The accuracy on test data is 0.73 and loss is 1.60. These are not optimal as of now, there may be overfitting issues, which could be fixed by further tuning the model and using cross-validation techniques in the future.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">model.compile<span style="color:#f92672">(</span>
+              loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;categorical_crossentropy&#39;</span>,
+              metrics<span style="color:#f92672">=[</span><span style="color:#e6db74">&#39;accuracy&#39;</span><span style="color:#f92672">])</span>
+model.fit<span style="color:#f92672">(</span>X_train, y_train, epochs<span style="color:#f92672">=</span>50, batch_size<span style="color:#f92672">=</span>64<span style="color:#f92672">)</span>
+test_loss, test_acc <span style="color:#f92672">=</span> model.evaluate<span style="color:#f92672">(</span>X_test, y_test<span style="color:#f92672">)</span>
+</code></pre></div><p><img src="./4.png" alt="png"></p>
+<h2 id="sources">Sources</h2>
+<p><a href="https://cs231n.github.io/convolutional-networks/">Convolutional Neural Networks (CNNs / ConvNets)</a></p>
+<p><a href="https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/">An Intuitive Explanation of Convolutional Neural Networks</a></p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/ml/">ML</a>
+  
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://yuan-feng1.github.io/">Yuan Feng</a></h5>
+      <h6 class="card-subtitle">Master of Interdisciplinary Data Science</h6>
+      <p class="card-text" itemprop="description">Current NLP Research Assistant at Credit Suisse. Former Data Scientist intern at Amazon &amp; Lenovo &amp; Levels.fyi.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://www.linkedin.com/in/yuanfeng11/" target="_blank" rel="noopener">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/yuan-feng1" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    </div>
+
+    
+    
+    
+    </div>
+  </div>
+</article>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/Twitter" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="skype:echo123?call"  title="Skype Me"><i class="fab fa-skype" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://keybase.io/" target="_blank" rel="noopener" title="Chat on Keybase"><i class="fab fa-keybase" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://discourse.gohugo.io" target="_blank" rel="noopener" title="Discuss on Forum"><i class="fas fa-comments" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

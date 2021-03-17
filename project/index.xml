@@ -6,17 +6,340 @@
     <description>Recent content in Projects on Yuan Feng</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://yuan-feng1.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Deep Learning - Insects Classification</title>
-      <link>https://yuan-feng1.github.io/project/hw7/</link>
-      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      <title>Detecting Solar Panels From Satellite Imagery</title>
+      <link>https://yuan-feng1.github.io/project/solar/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://yuan-feng1.github.io/project/hw7/</guid>
+      <guid>https://yuan-feng1.github.io/project/solar/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Due to the rising concern over the pollution from the current energy sources, solar power has been regarded as one of the most promising methods to provide energy at low pollution and low environmental footprint. As of the end of 2018, solar power accounted for around 1.6% of the total power consumed in the United States amounting to 64.2 GW. Furthermore, solar power has ranked consistently as the first or second fastest growing power source in the US since 2013. Moreover, unlike nuclear, wind or hydrothermal energy solar energy can be easily harnessed from rooftops using photovoltaic cells. Solar power using photovoltaic solar panels is a quickly growing source of power across US households with increasing rates of adoption. Tracking the installation of solar panels across the nation to study the rates of adoption is often cumbersome and inaccurate - for such methods often involve self-reporting, monitoring sales of solar panels etc. A much more recent technique to track the harnessing of solar panels across the nation involves using machine learning models on satellite imagery. These models use a variety of techniques, both simple and intricate, to accurately identify the existence of solar panels in satellite images with high accuracy.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;goals-and-reports&#34;&gt;Goals and Reports&lt;/h2&gt;
+&lt;p&gt;In order to obtain a thorough understanding of the current state of individual solar panel installation and usage both on a local and national scale, an automated method of identification is required for classifying the existence of solar panels based on pre-processed satellite images. In the notion of machine learning algorithms, the original model is built on the basis of an educated estimation and exploration of the dataset and trained multiple times on the training data with possible future stages of parameter tuning. The model performance will be evaluated based on its test data, which in this case are images unseen by the model beforehand. The finalized model will be able to provide classification on newly imported images in a scalable fashion. With the implementation of machine learning to solar panel image classification, the cost and time required to identify installed solar panels could be potentially reduced and will help the industry better provide renewable, clean and affordable alternative energy sources.&lt;/p&gt;
+&lt;p&gt;In this project, we discuss four different approaches to identify and classify solar panels in satellite images. We lay specific emphasis on two different feature extraction methods namely Histogram and Gradients (HOG) and Color Filter Feature Extraction (CFFE). We then use a K-Nearest Neighbour (KNN) Classifier in both cases to classify the images. These methods achieved an area under the curve (AUC) of 0.800 and 0.837 respectively. In our third approach, we develop an ensemble model combining both the earlier described feature extraction methods. The AUC in this case was 0.888. Finally we developed a Convolutional Neural Network (CNN) with an AUC of 0.983. We compare the different approaches and analyze where they performed well and where they can be improved.&lt;/p&gt;
+&lt;p&gt;The project code can be found &lt;a href=&#34;https://github.com/yuanfeng2/solar_panel_detection_CNN&#34;&gt;here&lt;/a&gt;, and a pdf of the report is located &lt;a href=&#34;https://github.com/yuanfeng2/solar_panel_detection_CNN/blob/master/Solar%20Panel%20Detection.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to Eat - AI mobile Restaurant Recommender</title>
+      <link>https://yuan-feng1.github.io/project/eatnow/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/eatnow/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;What to Eat is an AI-based mobile restaurant recommendation app which basically recommends restaurant by learning user preferences. The tools used for implementation were React-Native for frontend and Django for backend.&lt;/p&gt;
+&lt;p&gt;Here are the icons for What to Eat:
+&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;dash--plotly&#34;&gt;Dash &amp;amp; Plotly&lt;/h2&gt;
+&lt;p&gt;Dash is a Open Source Python library for creating reactive, Web-based applications. Dash is a user interface library for creating analytical web applications. Those who use Python for data analysis, data exploration, visualization, modelling, instrument control, and reporting will find immediate use for Dash.&lt;/p&gt;
+&lt;h2 id=&#34;landing-pages&#34;&gt;Landing Pages&lt;/h2&gt;
+&lt;p&gt;Upon opening the app, a short animation will pop up, allowing for selecting several cuisines of your favourotes and several other criterias. Clicing on the bubble will turn it into dark version.&lt;/p&gt;
+&lt;p&gt;The landing pages look like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tinder-like-swiping-animation&#34;&gt;Tinder-like Swiping Animation&lt;/h2&gt;
+&lt;p&gt;Tinder like animation was applied to the main screens when user is swiping the cards. This enabled smooth viewing and swiping experience. I researched and found shared-element-transition was supported in React Native for image transition. Location and filter functions are located on left-top and right-top of the screen, where you could re-locate your postion and pick type of cuisines and ratings for more accurate feeds. In the middle part of screen, you could switch to your like history and review your past selections&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./all.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tf-idf-algorithms&#34;&gt;TF-IDF Algorithms&lt;/h2&gt;
+&lt;p&gt;TF-IDF (term frequency–inverse document frequency) is essentially an vector written by hand, and then we can calculate the similarity between vectors. In my case, the vector is the restaurant, and the keywords are the menu items. Content based filtering was conducted by recommending restaurants similar to user favorite restaurants.&lt;/p&gt;
+&lt;p&gt;The raw code can be found &lt;a href=&#34;https://github.com/greatday4april/what-to-eat-ml-backend&#34;&gt;here&lt;/a&gt;(where my username was listed “24451yolanda”). We are still in the process of lauching to IOS and Android strore - stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Patient Discharge Location Predicion with MIMIC Dataset</title>
+      <link>https://yuan-feng1.github.io/project/hospital/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/hospital/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;The utilization of hospital resources is an urgent topic worldwide. Often we could hear in the news, especially in times of the global pandemic, of the space shortage in hospitals for patients in need. The main goal of this project is to construct a classification system built with state-of-art machine learning models to predict the discharge location of patients with ICU admission based on a series of records, such as demographics, vital signs, laboratory tests, medications information, and so on.&lt;/p&gt;
+&lt;p&gt;The major focus of our prediction will be on SNF which stands for skilled nursing facilities and other hospitals, Since the number of patients assigned to these facilities best represents the allocation of medical resources and hospital capacity.&lt;/p&gt;
+&lt;h2 id=&#34;my-responsibility&#34;&gt;My Responsibility&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Initial operations on accessing the data &amp;amp; Data imputation on missing values.&lt;/li&gt;
+&lt;li&gt;Implemented Random Forest modeling with a series of hyperparameter tuning for optimal performance.&lt;/li&gt;
+&lt;li&gt;Designed workflow and layout of interactive ML real-time prediction using Flask app.&lt;/li&gt;
+&lt;li&gt;Finished the real-time prediction engine using machine learning models.&lt;/li&gt;
+&lt;li&gt;Data product &amp;amp; Github aggregation and calibration; Gthub readme organizations &amp;amp; updates (cooperated with all team members).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;audience&#34;&gt;Audience&lt;/h2&gt;
+&lt;p&gt;Our platform aims to serve the hospital administration team, the inquisitive researchers and curious patients. The multi-page dashboard serves as a tool to monitor occupancy and clinical results of patients, and provide comprehensive demonstration. The online ML prediction model provides real-time results of clinical outcome, which will aid in decision-making process of patients and doctors.&lt;/p&gt;
+&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
+&lt;p&gt;Our project will be able to demonstrate the hospital bed occupancy and the usage of hospital resources so that the doctors are able to make better decisions. Moreover, it will display vivid visualizations of the overall trend of the patients in hospital. And our platform will help not only the doctors by the patients and inquisitive people by offering an online machine learning platform.&lt;/p&gt;
+&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://mimic.physionet.org/&#34;&gt;MIMIC data&lt;/a&gt; is a public-available database which is comprised of ~60,000 deidentified large-scale health-related data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Data Preprocessing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Data pre-processing was conducted using multiple packages in Python, including pandas and numpy. Subsequent tasks include looking at the distribution of each varaible, converting to appropriate datatype，then checking for the missingness of the data and conducted imputation and testing performance on dummy model.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Technical Stack I mastered&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Data processing: pandas, numpy / Visualization: pyplot, seaborn&lt;/p&gt;
+&lt;p&gt;Machine Learning Implementation: scikit-learn, optuna, xgboost&lt;/p&gt;
+&lt;p&gt;Deployment: dash, Flask&lt;/p&gt;
+&lt;p&gt;Git version control: branch set-up, push, commit, merge, pull, resolve issues&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;dashboard-eda&#34;&gt;Dashboard EDA&lt;/h2&gt;
+&lt;p&gt;First, we looked at the distribution of the MIMIC dataset. The majority of patients were discharged to their own home(58.7%), and the second-biggest location is SNF(19.9%), and the rest were sent to other facility or dead. The number of records placed on the right is a number-based illustration of this distribution.
+&lt;img src=&#34;./1.png&#34; alt=&#34;png&#34;&gt;
+Secondly, this stacked bar chart demonstrated the admission type of patients. The majority of admitted patients were in the emergency category, newborn and elective comes second and urgent cases are the least. This indicates the classification results in the dataset was not balanced, which we will address in the modeling process for better performance.
+&lt;img src=&#34;./2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We also plotted the confusin matrix to show the correlation of this dataset. Overall, there was not much collinearity issue in this dataset.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;model-analysis&#34;&gt;Model Analysis&lt;/h2&gt;
+&lt;p&gt;We utilized multiple machine learning algorithms to approach this classfication problem. Based on our research, the currently most popular methods include Random Forest, Xgboost, SVM and Naive Bayes. After conducting data preprocessing and dummy model as a baseline comparison, we developed the each of the models with hyper-parameter tuning for model training, and based on a series of metrics such as accuracy, precision, recall and F1, selected the optimal model for future analysis.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;random_grid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n_estimators&amp;#39;&lt;/span&gt;: n_estimators,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_features&amp;#39;&lt;/span&gt;: max_features,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_depth&amp;#39;&lt;/span&gt;: max_depth,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_split&amp;#39;&lt;/span&gt;: min_samples_split,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_leaf&amp;#39;&lt;/span&gt;: min_samples_leaf,
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bootstrap&amp;#39;&lt;/span&gt;: bootstrap&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Use the random grid to search for best hyperparameters&lt;/span&gt;
+rf &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomForestClassifier&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Random search of parameters, using 3 fold cross validation, search across 100 different combinations, and use all available cores&lt;/span&gt;
+rf_random &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomizedSearchCV&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;estimator &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; rf, param_distributions &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; random_grid, n_iter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 100, cv &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 3, verbose&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2, random_state&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;42, n_jobs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Fit the random search model&lt;/span&gt;
+rf_random.fit&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;X_train, y_train&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;           
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;random-forest-modeling&#34;&gt;Random Forest Modeling&lt;/h2&gt;
+&lt;p&gt;With regards to model development process, I built the Random Forest model, which is an ensemble learning method. It is trained on different parts of the data, and builds multiple decision trees during the training process then return the prediction by finding the most votes from individual trees. The major advantages of Random Forests is that it helps with our goal of  boosting model performance and solving overfitting issues, but these advantages may come at the expense of some loss of interpretability.&lt;/p&gt;
+&lt;p&gt;For thr hyperparameter tuning process, I initially generated a grid of possible parameters including &amp;ldquo;n_estimators&amp;rdquo;, &amp;ldquo;min_samples_split&amp;rdquo;, &amp;ldquo;min_samples_leaf&amp;rdquo;, &amp;ldquo;max_features&amp;rdquo;, &amp;ldquo;max_depth&amp;rdquo;,  and &amp;ldquo;bootstrap&amp;rdquo; for the model to choose from.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#parameters of the best model&lt;/span&gt;
+rf_random.best_params_
+
+&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n_estimators&amp;#39;&lt;/span&gt;: 1100,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_split&amp;#39;&lt;/span&gt;: 10,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_leaf&amp;#39;&lt;/span&gt;: 2,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_features&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sqrt&amp;#39;&lt;/span&gt;,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_depth&amp;#39;&lt;/span&gt;: 50,
+ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bootstrap&amp;#39;&lt;/span&gt;: False&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With the help of RandomizedSearchCV function, performed gird search to find the set of parameters that returns highest accuracy values. After completing the tuning process, the best parameters are shown above.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./rf.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Random has proved to be a very powerful model for classfication problems. The accuracy has boosted to 0.99 on train data and reached 0.68 on test data. The metrics were also satisfying for precision, recall and F1, indicating it performed well on four categories as well.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Table 1 - Model evaluations on train dataset&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Train&lt;/th&gt;
+&lt;th&gt;Dummy Classifier&lt;/th&gt;
+&lt;th&gt;Logistic Regression&lt;/th&gt;
+&lt;th&gt;SVM&lt;/th&gt;
+&lt;th&gt;KNN&lt;/th&gt;
+&lt;th&gt;Random Forest&lt;/th&gt;
+&lt;th&gt;Xgboost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Accuracy&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.70&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Precision&lt;/td&gt;
+&lt;td&gt;0.34&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.76&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Recall&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.70&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.77&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F1&lt;/td&gt;
+&lt;td&gt;0.43&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.99&lt;/td&gt;
+&lt;td&gt;0.75&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The above table shows all of modeling results. All models performed quite well after cross-validation and tuning process, with an accuracy above 64% for all models except dummy model. Random Forest ranks top in terms of performance on train data. It has almost perfect results in terms of classification.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Table 2 - Model evaluations on test dataset&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Test&lt;/th&gt;
+&lt;th&gt;Dummy Classifier&lt;/th&gt;
+&lt;th&gt;Logistic Regression&lt;/th&gt;
+&lt;th&gt;SVM&lt;/th&gt;
+&lt;th&gt;KNN&lt;/th&gt;
+&lt;th&gt;Random Forest&lt;/th&gt;
+&lt;th&gt;Xgboost&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Accuracy&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Precision&lt;/td&gt;
+&lt;td&gt;0.34&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.63&lt;/td&gt;
+&lt;td&gt;0.55&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Recall&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;td&gt;0.60&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;td&gt;0.68&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F1&lt;/td&gt;
+&lt;td&gt;0.43&lt;/td&gt;
+&lt;td&gt;0.59&lt;/td&gt;
+&lt;td&gt;0.62&lt;/td&gt;
+&lt;td&gt;0.53&lt;/td&gt;
+&lt;td&gt;0.64&lt;/td&gt;
+&lt;td&gt;0.66&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;However, when we look at results on test data, random forest model performed roughly the same as Xgboost modeling. The accuracy of Random Forest is 0.68, which is much lower than on train data, which indictas potential issues of overfitting. Based on a combination of performance and consistency, we chose Xgboost which has the highest accuracy of 68% with a overall satisfactory performance on all four categories. All F1, recall and precision values are aligned.&lt;/p&gt;
+&lt;h2 id=&#34;reason-why-xgboost-outperformed&#34;&gt;Reason why Xgboost outperformed&lt;/h2&gt;
+&lt;p&gt;Our results are aligned in practice of various data science competitions and it also makes sense because for a theoretical standpoint.
+Xgboost is essentially a very powerful model especially for classification problems. XGBoost stands for extreme gradient boosting. Boosting is an ensemble technique which trains models in sequence rather than training models separately. Each new model will correct the errors made by the previous ones and are added sequentially until no further improvements are available.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;online-ml-real-time-prediction&#34;&gt;Online ML Real-Time Prediction&lt;/h2&gt;
+&lt;p&gt;Online real-time prediction is one of the unique features of our data product. I implemented this platform, from designing the initial layout, seraching for best tools to implementation. The backend I decided to use is Flask, because it is lightweight with simple syntax comparing with other backend options, and it is based on Python which has higher popularity in DS field. Moreover, Flask app could be combined with Dash to create fascinating visualization effects, and it integrates perfectly with the dashboard.&lt;/p&gt;
+&lt;p&gt;Total of 10 variables are available for users to manually input with descriptions by the side. Five authors features are the top five are featuring protest plot while the rest are features with higher availability to the general public. There are over 80 features in our data and they will be unrealistic for user input every variable. Below is the input section:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./10.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This was a great opportunity for me to brush-up on web dev skills. I used HTML and CSS for writing the structure and decoration of this interface, and callbacks in Javascript to render the inputs. Here shows a part of code to demonstarte this process.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;server &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; flask.Flask&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;__name__&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dash.Dash&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;__name__, server&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;server,external_stylesheets&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;external_stylesheets&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+
+layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html.Div&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+    dbc.Container&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+        dbc.Row&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt; dbc.Col&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;html.H1&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Real Time Prediction Serverless App&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mb-2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+    dbc.Container&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+        dbc.Row&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;dbc.Col&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;dbc.Card&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;html.H3&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;children&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Input Features&amp;#39;&lt;/span&gt;,className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text-center text-light bg-dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, body&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True, color&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mt-4 mb-4&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)])&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+    dbc.FormGroup&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;dbc.Label&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Binary Input: if insurance type is &amp;#39;medicare&amp;#39; then 1 else 0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+        dbc.Input&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INSURANCE_Medicare&amp;#34;&lt;/span&gt;,type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;number&amp;#34;&lt;/span&gt;, placeholder&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Enter or select...&amp;#34;&lt;/span&gt;,min&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0, max&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
+ 
+@app.callback&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+    Output&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;out&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;children&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Input&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n_clicks&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)]&lt;/span&gt;,
+    
+    state&lt;span style=&#34;color:#f92672&#34;&gt;=[&lt;/span&gt;State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Age&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Gender&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HeartRate_Mean&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Glucose_Mean&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Therefore, besides these 10 selected features, I used mode or mean of the rest remaining variables available to public such as age, sex, and heart rate level, etc.There are over 80 features in our data and it will be unrealistic for user to input every variable. Therefore besides these 10 selected features, we use mod or mean of the rest remaining variables.&lt;/p&gt;
+&lt;p&gt;There are over 80 features in our data and they will be unrealistic for user input every variable. Therefore besides these 10 selected features, we use mode or meaning of the remaining variables.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./6.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Once the user finished all the required input. Upon clicking the go button our cloud-based model will display the most accurate prediction based on the input. Here we can see that the best gas according to my input is home which means the patient with such features is most likely to be discharged to home.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;my-takeaways-from-this-project&#34;&gt;My takeaways from this project&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m really glad to have this great opportunity to work with MIMIC EHR dataset, I have always been intrigued by application of Data Science in biomedical filed and this final project marked a milestone on my trajectory into personal &amp;ldquo;wild west&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;This was a good combination of skills learned in class and real-world challenges, and I feel very satisfied to successfully implement a complete inteface based on ML modeling and analysis. Big shout-out to my teammates for a semester&amp;rsquo;s hard work.😊 Thanks to Prof. Chan and TA for all the precious instructions &amp;amp; suggestions.🎉&lt;/p&gt;
+&lt;p&gt;I hope you&amp;rsquo;re enjoying this blog article and find our data product interesting. Here is the &lt;a href=&#34;https://bios823-mimic-dashboard.ue.r.appspot.com/deploy_app&#34;&gt;Interactive App&lt;/a&gt;. &lt;a href=&#34;https://github.com/biostats823-final-project/MIMIC-Predictive-Modeling&#34;&gt;GitHub Link of models&lt;/a&gt; is here. &lt;a href=&#34;https://github.com/biostats823-final-project/MIMIC-Dashboard&#34;&gt;GitHub Link of dashboard&lt;/a&gt; can be found here.&lt;/p&gt;
+&lt;p&gt;Thanks for reading！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Plotly website &lt;a href=&#34;https://plotly.com/&#34;&gt;https://plotly.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dahsboard on US PHD Recipients</title>
+      <link>https://yuan-feng1.github.io/project/phd/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/phd/</guid>
+      <description>&lt;h2 id=&#34;phd-in-us&#34;&gt;PHD in US&lt;/h2&gt;
+&lt;p&gt;This dataset comes from &lt;a href=&#34;https://ncses.nsf.gov/pubs/nsf19301/survey-description&#34;&gt;PhDs awarded in the US&lt;/a&gt;. It collects data on the number and characteristics of individuals receiving research doctoral degrees from U.S. academic institutions. Based on its official website, this survey included surveys from individuals receiving a research doctorate from a U.S. academic institutions in various fields.&lt;/p&gt;
+&lt;h2 id=&#34;dash--plotly&#34;&gt;Dash &amp;amp; Plotly&lt;/h2&gt;
+&lt;p&gt;Dash is a Open Source Python library for creating reactive, Web-based applications. Dash is a user interface library for creating analytical web applications. Those who use Python for data analysis, data exploration, visualization, modelling, instrument control, and reporting will find immediate use for Dash.&lt;/p&gt;
+&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
+&lt;p&gt;Online dashboard can be found &lt;a href=&#34;http://noafeng72.pythonanywhere.com&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are three plots included in this Dashboard. I included screenshots in this post. For the interactive version.
+Dashboard here](&lt;a href=&#34;http://noafeng72.pythonanywhere.com&#34;&gt;http://noafeng72.pythonanywhere.com&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This table illustrates the median salary of PHDs in 2017. As we could see, there is a quite large between different fields. The salaries in Math &amp;amp; CS are higher than the rest of areas overall sectors, and PHDs who work in the industry have higher salaries than rest of sectors overall.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This table illustrates the debt situation of PHDs from 2008 to 2017. The majority of PHDs have no debts, while there are significant number of PHDs who have quite high debts (over 30,000 USD) in their course of PHD study. Based on this graph, the financial situation of PHDs is overall stable.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This table illustrates the number of PHDs recipients from 2008 to 2017. We can see from the plot for each field, the number of PHDs recipients are increasing. To be more specific, the area of life sciences has the biggest increase, this is a sign of scientific focus of the US society in life science areas such as healthcare.
+Overall, the number of PHDs recipients and this trend is seemingly to maintain, I can estimate that there will be more PHDs in the following years.&lt;/p&gt;
+&lt;h2 id=&#34;dash-code&#34;&gt;Dash Code&lt;/h2&gt;
+&lt;p&gt;Overall, the code style in Dash is similar to other plotting packages. There are plenty of tutorials on plotly official website for Python implementation of Dash. Following is a part of my full code, that calls the part of figure and place them onto the the dashboard.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;app.layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html.Div&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
+    html.H1&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;children&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Dashboard on Science &amp;amp; Engineering Doctorates&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fig22&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bar1&amp;#39;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Slider&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;year1&amp;#39;&lt;/span&gt;,
+        min&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2008,
+        max&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2017,
+        value&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2008,
+        marks&lt;span style=&#34;color:#f92672&#34;&gt;={&lt;/span&gt;str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;year&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;year&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; year in year_unique&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+        step&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None
+    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
+    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Number of Doctorate recipients 1987 - 2007&amp;#39;&lt;/span&gt;,
+        figure&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;fig11
+    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;One easy approach is to use:&lt;a href=&#34;https://www.pythonanywhere.com/&#34;&gt;pythonanywhere&lt;/a&gt;. I followed &lt;a href=&#34;https://towardsdatascience.com/the-easiest-way-to-deploy-your-dash-app-for-free-f92c575bb69e&#34;&gt;this&lt;/a&gt; introduction on Medium.&lt;/p&gt;
+&lt;p&gt;First, we need to sign up to pythonanywhere.com by creating a Beginner account. On the top bar go to Web &amp;gt; Add a new web app, the select Flask as the Python Web framework. You need to choose the version of Python that works best for your peoject.&lt;/p&gt;
+&lt;p&gt;The next step is uploading the python file. On the top bar go to Files and, in the Directories sidebar, click on mysite/. You&amp;rsquo;ll find a file named flask_app.py inside. You can delete the default empty python file.&lt;/p&gt;
+&lt;p&gt;The third step is to install the dependencies. On the Consoles tap, we’ll find the Bash console, this is the same as well as the Python console. Then we can start uploading the files we generated.&lt;/p&gt;
+&lt;p&gt;Last step is to change the code in Web and in the Code section after opening the WSGI configuration file based on your code and board implementation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./s.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Deep Learning - Insects Classification</title>
+      <link>https://yuan-feng1.github.io/project/insect/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/insect/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction-to-cnn&#34;&gt;Introduction to CNN&lt;/h2&gt;
 &lt;p&gt;A convolutional neural network (CNN) is a specific type of artificial neural network that uses perceptrons, a machine learning unit algorithm, for supervised learning, to analyze data. CNNs apply to image processing, natural language processing and other kinds of cognitive tasks. They are also the go-to deep learning architecture for computer vision tasks, such as object detection, image segmentation, facial recognition, etc.&lt;/p&gt;
@@ -83,62 +406,11 @@ test_loss, test_acc &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; mod
     </item>
     
     <item>
-      <title>Dahsboard on US PHD Recipients</title>
-      <link>https://yuan-feng1.github.io/project/hw6/</link>
-      <pubDate>Wed, 04 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://yuan-feng1.github.io/project/hw6/</guid>
-      <description>&lt;h2 id=&#34;phd-in-us&#34;&gt;PHD in US&lt;/h2&gt;
-&lt;p&gt;This dataset comes from &lt;a href=&#34;https://ncses.nsf.gov/pubs/nsf19301/survey-description&#34;&gt;PhDs awarded in the US&lt;/a&gt;. It collects data on the number and characteristics of individuals receiving research doctoral degrees from U.S. academic institutions. Based on its official website, this survey included surveys from individuals receiving a research doctorate from a U.S. academic institutions in various fields.&lt;/p&gt;
-&lt;h2 id=&#34;dash--plotly&#34;&gt;Dash &amp;amp; Plotly&lt;/h2&gt;
-&lt;p&gt;Dash is a Open Source Python library for creating reactive, Web-based applications. Dash is a user interface library for creating analytical web applications. Those who use Python for data analysis, data exploration, visualization, modelling, instrument control, and reporting will find immediate use for Dash.&lt;/p&gt;
-&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
-&lt;p&gt;Online dashboard can be found &lt;a href=&#34;http://noafeng72.pythonanywhere.com&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;There are three plots included in this Dashboard. I included screenshots in this post. For the interactive version.
-Dashboard here](&lt;a href=&#34;http://noafeng72.pythonanywhere.com&#34;&gt;http://noafeng72.pythonanywhere.com&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./d3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This table illustrates the median salary of PHDs in 2017. As we could see, there is a quite large between different fields. The salaries in Math &amp;amp; CS are higher than the rest of areas overall sectors, and PHDs who work in the industry have higher salaries than rest of sectors overall.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./d2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This table illustrates the debt situation of PHDs from 2008 to 2017. The majority of PHDs have no debts, while there are significant number of PHDs who have quite high debts (over 30,000 USD) in their course of PHD study. Based on this graph, the financial situation of PHDs is overall stable.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This table illustrates the number of PHDs recipients from 2008 to 2017. We can see from the plot for each field, the number of PHDs recipients are increasing. To be more specific, the area of life sciences has the biggest increase, this is a sign of scientific focus of the US society in life science areas such as healthcare.
-Overall, the number of PHDs recipients and this trend is seemingly to maintain, I can estimate that there will be more PHDs in the following years.&lt;/p&gt;
-&lt;h2 id=&#34;dash-code&#34;&gt;Dash Code&lt;/h2&gt;
-&lt;p&gt;Overall, the code style in Dash is similar to other plotting packages. There are plenty of tutorials on plotly official website for Python implementation of Dash. Following is a part of my full code, that calls the part of figure and place them onto the the dashboard.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;app.layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html.Div&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
-    html.H1&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;children&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Dashboard on Science &amp;amp; Engineering Doctorates&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fig22&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
-        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bar1&amp;#39;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-    dcc.Slider&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
-        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;year1&amp;#39;&lt;/span&gt;,
-        min&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2008,
-        max&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2017,
-        value&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2008,
-        marks&lt;span style=&#34;color:#f92672&#34;&gt;={&lt;/span&gt;str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;year&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;: str&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;year&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; year in year_unique&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-        step&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None
-    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-    dcc.Graph&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
-        id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Number of Doctorate recipients 1987 - 2007&amp;#39;&lt;/span&gt;,
-        figure&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;fig11
-    &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
-&lt;p&gt;One easy approach is to use:&lt;a href=&#34;https://www.pythonanywhere.com/&#34;&gt;pythonanywhere&lt;/a&gt;. I followed &lt;a href=&#34;https://towardsdatascience.com/the-easiest-way-to-deploy-your-dash-app-for-free-f92c575bb69e&#34;&gt;this&lt;/a&gt; introduction on Medium.&lt;/p&gt;
-&lt;p&gt;First, we need to sign up to pythonanywhere.com by creating a Beginner account. On the top bar go to Web &amp;gt; Add a new web app, the select Flask as the Python Web framework. You need to choose the version of Python that works best for your peoject.&lt;/p&gt;
-&lt;p&gt;The next step is uploading the python file. On the top bar go to Files and, in the Directories sidebar, click on mysite/. You&amp;rsquo;ll find a file named flask_app.py inside. You can delete the default empty python file.&lt;/p&gt;
-&lt;p&gt;The third step is to install the dependencies. On the Consoles tap, we’ll find the Bash console, this is the same as well as the Python console. Then we can start uploading the files we generated.&lt;/p&gt;
-&lt;p&gt;Last step is to change the code in Web and in the Code section after opening the WSGI configuration file based on your code and board implementation.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./s.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Star Wars Data with Request</title>
-      <link>https://yuan-feng1.github.io/project/hw5/</link>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
+      <link>https://yuan-feng1.github.io/project/starwars/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://yuan-feng1.github.io/project/hw5/</guid>
+      <guid>https://yuan-feng1.github.io/project/starwars/</guid>
       <description>&lt;h2 id=&#34;star-wars-api--request&#34;&gt;Star Wars API &amp;amp; Request&lt;/h2&gt;
 &lt;p&gt;Requests is one of the most popular libraries that helps retrieve data from the Internet. I will utilize the Star Wars API, which includes information about all characters from Stsr Wars, and Request to collect online data in Python and perform data wrangling and analysis.&lt;/p&gt;
 &lt;h2 id=&#34;loading-data-with-request&#34;&gt;Loading Data with Request&lt;/h2&gt;
@@ -200,11 +472,30 @@ film_names
     </item>
     
     <item>
-      <title>Spotify Song Database</title>
-      <link>https://yuan-feng1.github.io/project/hw4/</link>
-      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Transfer Learning Tutorial</title>
+      <link>https://yuan-feng1.github.io/project/tranfer/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://yuan-feng1.github.io/project/hw4/</guid>
+      <guid>https://yuan-feng1.github.io/project/tranfer/</guid>
+      <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;This tutorial explains the concepts and motivations behind transfer learning and seeks to provide an example of the technique used in practice based on my unerstanding and experience.&lt;/p&gt;
+&lt;p&gt;In the supervised learning context, deep neural networks have become more and more accurate in recent years. Convolutional neural networks using a residual learning network are particularly good at finding the optimal model parameters while improving accuracy. However, it is not possible to apply these deep models into a different situation or phenomena other than what they were trained and designed for. It is important to have this flexibility in real-world scenarios where we rarely encounter data structured in the same way as our training data. Transfer learning allows us to transfer some of the information learned from an ideal situation into a different and related situation for which our data is more limited.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d1.png&#34; alt=&#34;png&#34;&gt;                      &lt;br&gt;
+Above are sample images from the hymenoptera_data dataset. In this article we will define a common transfer learning technique for computer vision and image classification problem: inductive transfer learning using feature extraction or embedding using the hymenoptera_data dataset. By using a model previously trained on a robust training dataset, we can take advantage of its optimal parameters as a way to extract features for new data, reducing training time and improving performance considerably. First, we shall implement this method classically. Later, we will discuss one particular cutting-edge approach to this problem using quantum computing for a hybrid transfer learning method. In this approach, we replace a neural network’s output layer with a dressed quantum circuit that we then train for our target domain and task.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;Here is the model performance:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./d2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Transfer learning techniques can improve significantly on similar models built from scratch. Training time can be reduced by one half with classical parameter transfer methods, and performance in terms of AUC, AP and accuracy can also be improved significantly. These results can be attained with a minimum amount of training data as long as there is a pre-existing model trained in a similar domain. Both the classical and the CQ hybrid approach accomplished very similar performance in terms of accuracy and AUC. This both highlights the advantages of transfer learning and positive outlook of novel quantum methods to perform classifications.&lt;/p&gt;
+&lt;p&gt;The project report can be found &lt;a href=&#34;https://github.com/yuanfeng2/Transfer_Learning_Tutorial&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spotify Song Database</title>
+      <link>https://yuan-feng1.github.io/project/spotify/</link>
+      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/spotify/</guid>
       <description>&lt;h2 id=&#34;spotify-songs-data&#34;&gt;Spotify Songs Data&lt;/h2&gt;
 &lt;p&gt;Understanding and managing data is one of the priorities of analysts and data scientists. Relational databases are common and useful tools for performing tasks in selected database. Both querying and building databases are essential functionaries of relational databases. This post will focus on constructing databases in SQL with data from &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md&#34;&gt;Spotify songs&lt;/a&gt;. Various information including track name, album name and track characteristics are provided in this dataset. Analysis will be also performed on the intrumentalness of songs in playlists.&lt;/p&gt;
 &lt;h2 id=&#34;database-basics&#34;&gt;Database Basics&lt;/h2&gt;
@@ -310,10 +601,10 @@ DROP TABLE IF EXISTS temp;
     
     <item>
       <title>Visualizing Malaria Death</title>
-      <link>https://yuan-feng1.github.io/project/hw3/</link>
-      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      <link>https://yuan-feng1.github.io/project/malaria/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://yuan-feng1.github.io/project/hw3/</guid>
+      <guid>https://yuan-feng1.github.io/project/malaria/</guid>
       <description>&lt;p&gt;Malaria is caused by parasites from the genus Plasmodium, which could be spread to people by the bite of infected mosquitoes. In 2017, there were 219 million malaria cases that led to 435,000 deaths Malaria is an urgent public health priority for past decade. It has been estimated that around half of the world population are at risk today. Therefore, analysis on Malaria is useful in terms of global public health for research in preventive measures. I would like to share three visualizations using an online &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-11-13&#34;&gt;dataset&lt;/a&gt;. These plots are generated by Python.
 &lt;a href=&#34;https://github.com/yuan-feng1/bios-823-2019/blob/master/Homework_3_Yuan_Feng.ipynb&#34;&gt;Link to the Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -337,11 +628,94 @@ DROP TABLE IF EXISTS temp;
     </item>
     
     <item>
-      <title>Project Euler Solutions</title>
-      <link>https://yuan-feng1.github.io/project/hw2/</link>
-      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      <title>How I built my own portfolio website</title>
+      <link>https://yuan-feng1.github.io/project/website/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://yuan-feng1.github.io/project/hw2/</guid>
+      <guid>https://yuan-feng1.github.io/project/website/</guid>
+      <description>&lt;p&gt;A portfolio website is a great choice for you to showcase your work and let recruiters know more about you. With Github Page, we could easily set up a personal website for free. And using Hugo, you can have access to hundreds of special themes to choose from.&lt;/p&gt;
+&lt;p&gt;For me, I&amp;rsquo;m using Mac OS system and plan to build up this website from command line. Below is a detailed tutorial of how I successfully set up my website from scratch - Stay Tuned!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/yuan-feng1/yuan-feng1.github.io&#34;&gt;Link to my Github repository&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Install Hugo and Git&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First open the terminal, and input the following command-line. Note that if you do not have &lt;code&gt;homebrew&lt;/code&gt; installed, you may need to install it first.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I recommend installing Git as well. run &lt;code&gt;git --version&lt;/code&gt; in your command-line for checking.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Build on local machine&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Make sure to sit inside the directory to save the website. And run the following to initialize a new site:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd /Users/yuanfeng/Desktop
+hugo new site site_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, we should have a new folder with the name we just made. It will come with a list of folders, and we will dig deeper into those folders in a minute.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Select a theme&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I personally enjoy designs of minimalist and the use of white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Then I run the following command line in the terminal to download the contents in themes folder:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd site_name
+cd themes
+git clone https://github.com/themefisher/academia-hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And it&amp;rsquo;s also necessary to make sure the configurations are correct. Here I made some changes in the config.toml.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;baseurl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://[your github username].github.io/&amp;#34;&lt;/span&gt;
+languageCode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
+title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the website title shown on the tab&amp;#34;&lt;/span&gt;
+theme &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the same as theme name (exactly the folder name) in your themes folder&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Test locally&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to see how the webpage currently looks like by running the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd site_name
+hugo server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The following indicated success in running it locally. By going to &lt;code&gt;http://localhost:1313/ &lt;/code&gt;in my web browser, I could see my work so far and observe changes real-time.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Built in &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; ms
+Watching &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; changes in /Users/yuanfeng/site/yuan/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;archetypes,content,data,layouts,static&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+Watching &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; config changes in /Users/yuanfeng/site/yuan/config.toml
+Environment: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bind address 127.0.0.1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+Press Ctrl+C to stop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Personalize my website&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The template comes with a variety of different sections such as Publications, Recent Posts and Contact. However, in order for the main page to stay concise and minimal, I removed the less appealing and related components and replaced the sample photos and texts with mine by editing html and md files.&lt;/p&gt;
+&lt;p&gt;Another main change compared with the original template is the header and dropdown. This turned out to be tricky as I needed to tweak the Javascript code as well. The final results seem great!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./sample.jpg&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Deploy to Git Pages&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Last step is to render my website to Github Pages. I started by running the following commnad, which will generate a folder called &lt;code&gt;public&lt;/code&gt; and it will contain the required web files.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd site_name
+hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create Github Repository&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I wanted to publish my site as my github name. In order to do that, I created a new branch named &lt;code&gt;&amp;lt;USERNAME&amp;gt;.github.io.&lt;/code&gt; and set it to public.&lt;/p&gt;
+&lt;p&gt;Then the following command could sync the website to my github.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd public
+git init
+git add .
+git remote add origin https://github.com/username/username.github.io.git
+git commit -m “first commit”
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After completing the committing, I went to my repository and clicked on settings, then scrolled to the section of Github Pages. It successfully returned the link of my personal website:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://yuan-feng1.github.io/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And my personal website was successfully published.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s all for this blog. Thanks for reading!&lt;/p&gt;
+&lt;p&gt;Let me know if you have any comments/question. Feel free to find me at &lt;code&gt;yuan.feng347@duke.edu&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Solutions</title>
+      <link>https://yuan-feng1.github.io/project/eu/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/project/eu/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Problem 13 Large sum - Solved by 224972&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -610,320 +984,6 @@ def Solution_206&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;:
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations! Now you have figured out three interesting questions from Project Euler. If you find this article interesting, feel free to check out &lt;a href=&#34;https://projecteuler.net/&#34;&gt;Project Euler&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/13oqgkZA9Pqa4BGbakiPZVguvAkShETve?usp=sharing&#34;&gt;Screenshots of Solved problems&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How I built my own protfolio website</title>
-      <link>https://yuan-feng1.github.io/project/hw1/</link>
-      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://yuan-feng1.github.io/project/hw1/</guid>
-      <description>&lt;p&gt;A portfolio website is a great choice for you to showcase your work and let recruiters know more about you. With Github Page, we could easily set up a personal website for free. And using Hugo, you can have access to hundreds of special themes to choose from.&lt;/p&gt;
-&lt;p&gt;For me, I&amp;rsquo;m using Mac OS system and plan to build up this website from command line. Below is a detailed tutorial of how I successfully set up my website from scratch - Stay Tuned!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/yuan-feng1/yuan-feng1.github.io&#34;&gt;Link to my Github repository&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Install Hugo and Git&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;First open the terminal, and input the following command-line. Note that if you do not have &lt;code&gt;homebrew&lt;/code&gt; installed, you may need to install it first.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew install hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I recommend installing Git as well. run &lt;code&gt;git --version&lt;/code&gt; in your command-line for checking.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Build on local machine&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Make sure to sit inside the directory to save the website. And run the following to initialize a new site:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd /Users/yuanfeng/Desktop
-hugo new site site_name
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, we should have a new folder with the name we just made. It will come with a list of folders, and we will dig deeper into those folders in a minute.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Select a theme&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I personally enjoy designs of minimalist and the use of white or black as its main colors. It only takes googling to find ready-to-go themes but it took me a while to find my favorite.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Then I run the following command line in the terminal to download the contents in themes folder:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd site_name
-cd themes
-git clone https://github.com/themefisher/academia-hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And it&amp;rsquo;s also necessary to make sure the configurations are correct. Here I made some changes in the config.toml.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;baseurl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://[your github username].github.io/&amp;#34;&lt;/span&gt;
-languageCode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
-title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the website title shown on the tab&amp;#34;&lt;/span&gt;
-theme &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;the same as theme name (exactly the folder name) in your themes folder&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Test locally&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I wanted to see how the webpage currently looks like by running the following:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd site_name
-hugo server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The following indicated success in running it locally. By going to &lt;code&gt;http://localhost:1313/ &lt;/code&gt;in my web browser, I could see my work so far and observe changes real-time.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Built in &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; ms
-Watching &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; changes in /Users/yuanfeng/site/yuan/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;archetypes,content,data,layouts,static&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-Watching &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; config changes in /Users/yuanfeng/site/yuan/config.toml
-Environment: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;development&amp;#34;&lt;/span&gt;
-Serving pages from memory
-Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bind address 127.0.0.1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Press Ctrl+C to stop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Personalize my website&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The template comes with a variety of different sections such as Publications, Recent Posts and Contact. However, in order for the main page to stay concise and minimal, I removed the less appealing and related components and replaced the sample photos and texts with mine by editing html and md files.&lt;/p&gt;
-&lt;p&gt;Another main change compared with the original template is the header and dropdown. This turned out to be tricky as I needed to tweak the Javascript code as well. The final results seem great!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./sample.jpg&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Deploy to Git Pages&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Last step is to render my website to Github Pages. I started by running the following commnad, which will generate a folder called &lt;code&gt;public&lt;/code&gt; and it will contain the required web files.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd site_name
-hugo
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create Github Repository&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I wanted to publish my site as my github name. In order to do that, I created a new branch named &lt;code&gt;&amp;lt;USERNAME&amp;gt;.github.io.&lt;/code&gt; and set it to public.&lt;/p&gt;
-&lt;p&gt;Then the following command could sync the website to my github.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd public
-git init
-git add .
-git remote add origin https://github.com/username/username.github.io.git
-git commit -m “first commit”
-git push origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After completing the committing, I went to my repository and clicked on settings, then scrolled to the section of Github Pages. It successfully returned the link of my personal website:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;https://yuan-feng1.github.io/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;And my personal website was successfully published.&lt;/p&gt;
-&lt;p&gt;That&amp;rsquo;s all for this blog. Thanks for reading!&lt;/p&gt;
-&lt;p&gt;Let me know if you have any comments/question. Feel free to find me at &lt;code&gt;yuan.feng347@duke.edu&lt;/code&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Predict Patient Discharge Location with MIMIC Dataset</title>
-      <link>https://yuan-feng1.github.io/project/final/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://yuan-feng1.github.io/project/final/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
-&lt;p&gt;The utilization of hospital resources is an urgent topic worldwide. Often we could hear in the news, especially in times of the global pandemic, of the space shortage in hospitals for patients in need. The main goal of this project is to construct a classification system built with state-of-art machine learning models to predict the discharge location of patients with ICU admission based on a series of records, such as demographics, vital signs, laboratory tests, medications information, and so on.&lt;/p&gt;
-&lt;p&gt;The major focus of our prediction will be on SNF which stands for skilled nursing facilities and other hospitals, Since the number of patients assigned to these facilities best represents the allocation of medical resources and hospital capacity.&lt;/p&gt;
-&lt;h2 id=&#34;my-responsibility&#34;&gt;My Responsibility&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Initial operations on accessing the data &amp;amp; Data imputation on missing values.&lt;/li&gt;
-&lt;li&gt;Implemented Random Forest modeling with a series of hyperparameter tuning for optimal performance.&lt;/li&gt;
-&lt;li&gt;Designed workflow and layout of interactive ML real-time prediction using Flask app.&lt;/li&gt;
-&lt;li&gt;Finished the real-time prediction engine using machine learning models.&lt;/li&gt;
-&lt;li&gt;Data product &amp;amp; Github aggregation and calibration; Gthub readme organizations &amp;amp; updates (cooperated with all team members).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;audience&#34;&gt;Audience&lt;/h2&gt;
-&lt;p&gt;Our platform aims to serve the hospital administration team, the inquisitive researchers and curious patients. The multi-page dashboard serves as a tool to monitor occupancy and clinical results of patients, and provide comprehensive demonstration. The online ML prediction model provides real-time results of clinical outcome, which will aid in decision-making process of patients and doctors.&lt;/p&gt;
-&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;
-&lt;p&gt;Our project will be able to demonstrate the hospital bed occupancy and the usage of hospital resources so that the doctors are able to make better decisions. Moreover, it will display vivid visualizations of the overall trend of the patients in hospital. And our platform will help not only the doctors by the patients and inquisitive people by offering an online machine learning platform.&lt;/p&gt;
-&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://mimic.physionet.org/&#34;&gt;MIMIC data&lt;/a&gt; is a public-available database which is comprised of ~60,000 deidentified large-scale health-related data.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Data Preprocessing&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Data pre-processing was conducted using multiple packages in Python, including pandas and numpy. Subsequent tasks include looking at the distribution of each varaible, converting to appropriate datatype，then checking for the missingness of the data and conducted imputation and testing performance on dummy model.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Technical Stack I mastered&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Data processing: pandas, numpy / Visualization: pyplot, seaborn&lt;/p&gt;
-&lt;p&gt;Machine Learning Implementation: scikit-learn, optuna, xgboost&lt;/p&gt;
-&lt;p&gt;Deployment: dash, Flask&lt;/p&gt;
-&lt;p&gt;Git version control: branch set-up, push, commit, merge, pull, resolve issues&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;dashboard-eda&#34;&gt;Dashboard EDA&lt;/h2&gt;
-&lt;p&gt;First, we looked at the distribution of the MIMIC dataset. The majority of patients were discharged to their own home(58.7%), and the second-biggest location is SNF(19.9%), and the rest were sent to other facility or dead. The number of records placed on the right is a number-based illustration of this distribution.
-&lt;img src=&#34;./1.png&#34; alt=&#34;png&#34;&gt;
-Secondly, this stacked bar chart demonstrated the admission type of patients. The majority of admitted patients were in the emergency category, newborn and elective comes second and urgent cases are the least. This indicates the classification results in the dataset was not balanced, which we will address in the modeling process for better performance.
-&lt;img src=&#34;./2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;We also plotted the confusin matrix to show the correlation of this dataset. Overall, there was not much collinearity issue in this dataset.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;model-analysis&#34;&gt;Model Analysis&lt;/h2&gt;
-&lt;p&gt;We utilized multiple machine learning algorithms to approach this classfication problem. Based on our research, the currently most popular methods include Random Forest, Xgboost, SVM and Naive Bayes. After conducting data preprocessing and dummy model as a baseline comparison, we developed the each of the models with hyper-parameter tuning for model training, and based on a series of metrics such as accuracy, precision, recall and F1, selected the optimal model for future analysis.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;random_grid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n_estimators&amp;#39;&lt;/span&gt;: n_estimators,
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_features&amp;#39;&lt;/span&gt;: max_features,
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_depth&amp;#39;&lt;/span&gt;: max_depth,
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_split&amp;#39;&lt;/span&gt;: min_samples_split,
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_leaf&amp;#39;&lt;/span&gt;: min_samples_leaf,
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bootstrap&amp;#39;&lt;/span&gt;: bootstrap&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Use the random grid to search for best hyperparameters&lt;/span&gt;
-rf &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomForestClassifier&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Random search of parameters, using 3 fold cross validation, search across 100 different combinations, and use all available cores&lt;/span&gt;
-rf_random &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RandomizedSearchCV&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;estimator &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; rf, param_distributions &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; random_grid, n_iter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 100, cv &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 3, verbose&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2, random_state&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;42, n_jobs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Fit the random search model&lt;/span&gt;
-rf_random.fit&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;X_train, y_train&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;           
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;random-forest-modeling&#34;&gt;Random Forest Modeling&lt;/h2&gt;
-&lt;p&gt;With regards to model development process, I built the Random Forest model, which is an ensemble learning method. It is trained on different parts of the data, and builds multiple decision trees during the training process then return the prediction by finding the most votes from individual trees. The major advantages of Random Forests is that it helps with our goal of  boosting model performance and solving overfitting issues, but these advantages may come at the expense of some loss of interpretability.&lt;/p&gt;
-&lt;p&gt;For thr hyperparameter tuning process, I initially generated a grid of possible parameters including &amp;ldquo;n_estimators&amp;rdquo;, &amp;ldquo;min_samples_split&amp;rdquo;, &amp;ldquo;min_samples_leaf&amp;rdquo;, &amp;ldquo;max_features&amp;rdquo;, &amp;ldquo;max_depth&amp;rdquo;,  and &amp;ldquo;bootstrap&amp;rdquo; for the model to choose from.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#parameters of the best model&lt;/span&gt;
-rf_random.best_params_
-
-&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n_estimators&amp;#39;&lt;/span&gt;: 1100,
- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_split&amp;#39;&lt;/span&gt;: 10,
- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;min_samples_leaf&amp;#39;&lt;/span&gt;: 2,
- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_features&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sqrt&amp;#39;&lt;/span&gt;,
- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;max_depth&amp;#39;&lt;/span&gt;: 50,
- &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bootstrap&amp;#39;&lt;/span&gt;: False&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With the help of RandomizedSearchCV function, performed gird search to find the set of parameters that returns highest accuracy values. After completing the tuning process, the best parameters are shown above.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./rf.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Random has proved to be a very powerful model for classfication problems. The accuracy has boosted to 0.99 on train data and reached 0.68 on test data. The metrics were also satisfying for precision, recall and F1, indicating it performed well on four categories as well.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Table 1 - Model evaluations on train dataset&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;/table&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Train&lt;/th&gt;
-&lt;th&gt;Dummy Classifier&lt;/th&gt;
-&lt;th&gt;Logistic Regression&lt;/th&gt;
-&lt;th&gt;SVM&lt;/th&gt;
-&lt;th&gt;KNN&lt;/th&gt;
-&lt;th&gt;Random Forest&lt;/th&gt;
-&lt;th&gt;Xgboost&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Accuracy&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.65&lt;/td&gt;
-&lt;td&gt;0.70&lt;/td&gt;
-&lt;td&gt;0.64&lt;/td&gt;
-&lt;td&gt;0.99&lt;/td&gt;
-&lt;td&gt;0.77&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Precision&lt;/td&gt;
-&lt;td&gt;0.34&lt;/td&gt;
-&lt;td&gt;0.64&lt;/td&gt;
-&lt;td&gt;0.68&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.99&lt;/td&gt;
-&lt;td&gt;0.76&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Recall&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.65&lt;/td&gt;
-&lt;td&gt;0.70&lt;/td&gt;
-&lt;td&gt;0.64&lt;/td&gt;
-&lt;td&gt;0.99&lt;/td&gt;
-&lt;td&gt;0.77&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;F1&lt;/td&gt;
-&lt;td&gt;0.43&lt;/td&gt;
-&lt;td&gt;0.60&lt;/td&gt;
-&lt;td&gt;0.66&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.99&lt;/td&gt;
-&lt;td&gt;0.75&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;The above table shows all of modeling results. All models performed quite well after cross-validation and tuning process, with an accuracy above 64% for all models except dummy model. Random Forest ranks top in terms of performance on train data. It has almost perfect results in terms of classification.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Table 2 - Model evaluations on test dataset&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;/table&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Test&lt;/th&gt;
-&lt;th&gt;Dummy Classifier&lt;/th&gt;
-&lt;th&gt;Logistic Regression&lt;/th&gt;
-&lt;th&gt;SVM&lt;/th&gt;
-&lt;th&gt;KNN&lt;/th&gt;
-&lt;th&gt;Random Forest&lt;/th&gt;
-&lt;th&gt;Xgboost&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Accuracy&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.65&lt;/td&gt;
-&lt;td&gt;0.60&lt;/td&gt;
-&lt;td&gt;0.66&lt;/td&gt;
-&lt;td&gt;0.68&lt;/td&gt;
-&lt;td&gt;0.68&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Precision&lt;/td&gt;
-&lt;td&gt;0.34&lt;/td&gt;
-&lt;td&gt;0.60&lt;/td&gt;
-&lt;td&gt;0.63&lt;/td&gt;
-&lt;td&gt;0.55&lt;/td&gt;
-&lt;td&gt;0.65&lt;/td&gt;
-&lt;td&gt;0.65&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Recall&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.65&lt;/td&gt;
-&lt;td&gt;0.66&lt;/td&gt;
-&lt;td&gt;0.60&lt;/td&gt;
-&lt;td&gt;0.68&lt;/td&gt;
-&lt;td&gt;0.68&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;F1&lt;/td&gt;
-&lt;td&gt;0.43&lt;/td&gt;
-&lt;td&gt;0.59&lt;/td&gt;
-&lt;td&gt;0.62&lt;/td&gt;
-&lt;td&gt;0.53&lt;/td&gt;
-&lt;td&gt;0.64&lt;/td&gt;
-&lt;td&gt;0.66&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;However, when we look at results on test data, random forest model performed roughly the same as Xgboost modeling. The accuracy of Random Forest is 0.68, which is much lower than on train data, which indictas potential issues of overfitting. Based on a combination of performance and consistency, we chose Xgboost which has the highest accuracy of 68% with a overall satisfactory performance on all four categories. All F1, recall and precision values are aligned.&lt;/p&gt;
-&lt;h2 id=&#34;reason-why-xgboost-outperformed&#34;&gt;Reason why Xgboost outperformed&lt;/h2&gt;
-&lt;p&gt;Our results are aligned in practice of various data science competitions and it also makes sense because for a theoretical standpoint.
-Xgboost is essentially a very powerful model especially for classification problems. XGBoost stands for extreme gradient boosting. Boosting is an ensemble technique which trains models in sequence rather than training models separately. Each new model will correct the errors made by the previous ones and are added sequentially until no further improvements are available.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;online-ml-real-time-prediction&#34;&gt;Online ML Real-Time Prediction&lt;/h2&gt;
-&lt;p&gt;Online real-time prediction is one of the unique features of our data product. I implemented this platform, from designing the initial layout, seraching for best tools to implementation. The backend I decided to use is Flask, because it is lightweight with simple syntax comparing with other backend options, and it is based on Python which has higher popularity in DS field. Moreover, Flask app could be combined with Dash to create fascinating visualization effects, and it integrates perfectly with the dashboard.&lt;/p&gt;
-&lt;p&gt;Total of 10 variables are available for users to manually input with descriptions by the side. Five authors features are the top five are featuring protest plot while the rest are features with higher availability to the general public. There are over 80 features in our data and they will be unrealistic for user input every variable. Below is the input section:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./10.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This was a great opportunity for me to brush-up on web dev skills. I used HTML and CSS for writing the structure and decoration of this interface, and callbacks in Javascript to render the inputs. Here shows a part of code to demonstarte this process.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;server &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; flask.Flask&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;__name__&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dash.Dash&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;__name__, server&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;server,external_stylesheets&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;external_stylesheets&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-
-layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; html.Div&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
-    dbc.Container&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
-        dbc.Row&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt; dbc.Col&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;html.H1&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Real Time Prediction Serverless App&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mb-2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
-    dbc.Container&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;
-        dbc.Row&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;dbc.Col&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;dbc.Card&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;html.H3&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;children&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Input Features&amp;#39;&lt;/span&gt;,className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text-center text-light bg-dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, body&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True, color&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dark&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, className&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mt-4 mb-4&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)])&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
-    dbc.FormGroup&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;dbc.Label&lt;span style=&#34;color:#f92672&#34;&gt;([&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Binary Input: if insurance type is &amp;#39;medicare&amp;#39; then 1 else 0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
-        dbc.Input&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;INSURANCE_Medicare&amp;#34;&lt;/span&gt;,type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;number&amp;#34;&lt;/span&gt;, placeholder&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Enter or select...&amp;#34;&lt;/span&gt;,min&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0, max&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;])&lt;/span&gt;,
- 
-@app.callback&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
-    Output&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;out&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;children&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-    &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;Input&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n_clicks&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)]&lt;/span&gt;,
-    
-    state&lt;span style=&#34;color:#f92672&#34;&gt;=[&lt;/span&gt;State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Age&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Gender&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HeartRate_Mean&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-           State&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Glucose_Mean&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;,
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Therefore, besides these 10 selected features, I used mode or mean of the rest remaining variables available to public such as age, sex, and heart rate level, etc.There are over 80 features in our data and it will be unrealistic for user to input every variable. Therefore besides these 10 selected features, we use mod or mean of the rest remaining variables.&lt;/p&gt;
-&lt;p&gt;There are over 80 features in our data and they will be unrealistic for user input every variable. Therefore besides these 10 selected features, we use mode or meaning of the remaining variables.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./6.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Once the user finished all the required input. Upon clicking the go button our cloud-based model will display the most accurate prediction based on the input. Here we can see that the best gas according to my input is home which means the patient with such features is most likely to be discharged to home.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;my-takeaways-from-this-project&#34;&gt;My takeaways from this project&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;m really glad to have this great opportunity to work with MIMIC EHR dataset, I have always been intrigued by application of Data Science in biomedical filed and this final project marked a milestone on my trajectory into personal &amp;ldquo;wild west&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;This was a good combination of skills learned in class and real-world challenges, and I feel very satisfied to successfully implement a complete inteface based on ML modeling and analysis. Big shout-out to my teammates for a semester&amp;rsquo;s hard work.😊 Thanks to Prof. Chan and TA for all the precious instructions &amp;amp; suggestions.🎉&lt;/p&gt;
-&lt;p&gt;I hope you&amp;rsquo;re enjoying this blog article and find our data product interesting. Here is the &lt;a href=&#34;https://bios823-mimic-dashboard.ue.r.appspot.com/deploy_app&#34;&gt;Interactive App&lt;/a&gt;. &lt;a href=&#34;https://github.com/biostats823-final-project/MIMIC-Predictive-Modeling&#34;&gt;GitHub Link of models&lt;/a&gt; is here. &lt;a href=&#34;https://github.com/biostats823-final-project/MIMIC-Dashboard&#34;&gt;GitHub Link of dashboard&lt;/a&gt; can be found here.&lt;/p&gt;
-&lt;p&gt;Thanks for reading！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;p&gt;Plotly website &lt;a href=&#34;https://plotly.com/&#34;&gt;https://plotly.com/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

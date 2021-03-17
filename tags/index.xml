@@ -6,15 +6,42 @@
     <description>Recent content in Tags on Yuan Feng</description>
     <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://yuan-feng1.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>ML</title>
+      <link>https://yuan-feng1.github.io/tags/ml/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SDE</title>
+      <link>https://yuan-feng1.github.io/tags/sde/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/tags/sde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DV</title>
+      <link>https://yuan-feng1.github.io/tags/dv/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-feng1.github.io/tags/dv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Demo</title>
       <link>https://yuan-feng1.github.io/tags/demo/</link>
-      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://yuan-feng1.github.io/tags/demo/</guid>
       <description></description>

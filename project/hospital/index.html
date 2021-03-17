@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Yuan Feng">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Project Overview The utilization of hospital resources is an urgent topic worldwide. Often we could hear in the news, especially in times of the global pandemic, of the space shortage in hospitals for patients in need. The main goal of this project is to construct a classification system built with state-of-art machine learning models to predict the discharge location of patients with ICU admission based on a series of records, such as demographics, vital signs, laboratory tests, medications information, and so on.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://yuan-feng1.github.io/project/hospital/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.4e3b2f408b00c06405993e164c128cb2.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://yuan-feng1.github.io/project/hospital/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Yuan Feng">
+  <meta property="og:url" content="https://yuan-feng1.github.io/project/hospital/">
+  <meta property="og:title" content="Patient Discharge Location Predicion with MIMIC Dataset | Yuan Feng">
+  <meta property="og:description" content="Project Overview The utilization of hospital resources is an urgent topic worldwide. Often we could hear in the news, especially in times of the global pandemic, of the space shortage in hospitals for patients in need. The main goal of this project is to construct a classification system built with state-of-art machine learning models to predict the discharge location of patients with ICU admission based on a series of records, such as demographics, vital signs, laboratory tests, medications information, and so on."><meta property="og:image" content="https://yuan-feng1.github.io/project/hospital/featured.jpg">
+  <meta property="twitter:image" content="https://yuan-feng1.github.io/project/hospital/featured.jpg"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2021-03-15T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2021-03-15T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Patient Discharge Location Predicion with MIMIC Dataset | Yuan Feng</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>About me</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article article-project py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container split-header">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+        <img class="img-fluid w-100" src="/project/hospital/featured_hu5a7b5d153fed2a036133fa0461f51f99_90196_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
+        
+    </div>
+    <div class="col-lg-8">
+      <h1 itemprop="name">Patient Discharge Location Predicion with MIMIC Dataset</h1>
+
+      
+
+      
+
+
+
+<meta content="2021-03-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2021-03-15 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 15, 2021</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://yuan-feng1.github.io/project/hospital/&amp;text=Patient%20Discharge%20Location%20Predicion%20with%20MIMIC%20Dataset" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://yuan-feng1.github.io/project/hospital/&amp;t=Patient%20Discharge%20Location%20Predicion%20with%20MIMIC%20Dataset" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Patient%20Discharge%20Location%20Predicion%20with%20MIMIC%20Dataset&amp;body=https://yuan-feng1.github.io/project/hospital/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://yuan-feng1.github.io/project/hospital/&amp;title=Patient%20Discharge%20Location%20Predicion%20with%20MIMIC%20Dataset" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Patient%20Discharge%20Location%20Predicion%20with%20MIMIC%20Dataset%20https://yuan-feng1.github.io/project/hospital/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://yuan-feng1.github.io/project/hospital/&amp;title=Patient%20Discharge%20Location%20Predicion%20with%20MIMIC%20Dataset" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p><img src="./0.png" alt="png"></p>
+<h2 id="project-overview">Project Overview</h2>
+<p>The utilization of hospital resources is an urgent topic worldwide. Often we could hear in the news, especially in times of the global pandemic, of the space shortage in hospitals for patients in need. The main goal of this project is to construct a classification system built with state-of-art machine learning models to predict the discharge location of patients with ICU admission based on a series of records, such as demographics, vital signs, laboratory tests, medications information, and so on.</p>
+<p>The major focus of our prediction will be on SNF which stands for skilled nursing facilities and other hospitals, Since the number of patients assigned to these facilities best represents the allocation of medical resources and hospital capacity.</p>
+<h2 id="my-responsibility">My Responsibility</h2>
+<ul>
+<li>Initial operations on accessing the data &amp; Data imputation on missing values.</li>
+<li>Implemented Random Forest modeling with a series of hyperparameter tuning for optimal performance.</li>
+<li>Designed workflow and layout of interactive ML real-time prediction using Flask app.</li>
+<li>Finished the real-time prediction engine using machine learning models.</li>
+<li>Data product &amp; Github aggregation and calibration; Gthub readme organizations &amp; updates (cooperated with all team members).</li>
+</ul>
+<h2 id="audience">Audience</h2>
+<p>Our platform aims to serve the hospital administration team, the inquisitive researchers and curious patients. The multi-page dashboard serves as a tool to monitor occupancy and clinical results of patients, and provide comprehensive demonstration. The online ML prediction model provides real-time results of clinical outcome, which will aid in decision-making process of patients and doctors.</p>
+<h2 id="goals">Goals</h2>
+<p>Our project will be able to demonstrate the hospital bed occupancy and the usage of hospital resources so that the doctors are able to make better decisions. Moreover, it will display vivid visualizations of the overall trend of the patients in hospital. And our platform will help not only the doctors by the patients and inquisitive people by offering an online machine learning platform.</p>
+<h2 id="data">Data</h2>
+<p><a href="https://mimic.physionet.org/">MIMIC data</a> is a public-available database which is comprised of ~60,000 deidentified large-scale health-related data.</p>
+<p><strong>Data Preprocessing</strong></p>
+<p>Data pre-processing was conducted using multiple packages in Python, including pandas and numpy. Subsequent tasks include looking at the distribution of each varaible, converting to appropriate datatype，then checking for the missingness of the data and conducted imputation and testing performance on dummy model.</p>
+<p><strong>Technical Stack I mastered</strong></p>
+<p>Data processing: pandas, numpy / Visualization: pyplot, seaborn</p>
+<p>Machine Learning Implementation: scikit-learn, optuna, xgboost</p>
+<p>Deployment: dash, Flask</p>
+<p>Git version control: branch set-up, push, commit, merge, pull, resolve issues</p>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="dashboard-eda">Dashboard EDA</h2>
+<p>First, we looked at the distribution of the MIMIC dataset. The majority of patients were discharged to their own home(58.7%), and the second-biggest location is SNF(19.9%), and the rest were sent to other facility or dead. The number of records placed on the right is a number-based illustration of this distribution.
+<img src="./1.png" alt="png">
+Secondly, this stacked bar chart demonstrated the admission type of patients. The majority of admitted patients were in the emergency category, newborn and elective comes second and urgent cases are the least. This indicates the classification results in the dataset was not balanced, which we will address in the modeling process for better performance.
+<img src="./2.png" alt="png"></p>
+<p>We also plotted the confusin matrix to show the correlation of this dataset. Overall, there was not much collinearity issue in this dataset.</p>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="model-analysis">Model Analysis</h2>
+<p>We utilized multiple machine learning algorithms to approach this classfication problem. Based on our research, the currently most popular methods include Random Forest, Xgboost, SVM and Naive Bayes. After conducting data preprocessing and dummy model as a baseline comparison, we developed the each of the models with hyper-parameter tuning for model training, and based on a series of metrics such as accuracy, precision, recall and F1, selected the optimal model for future analysis.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">random_grid <span style="color:#f92672">=</span> <span style="color:#f92672">{</span><span style="color:#e6db74">&#39;n_estimators&#39;</span>: n_estimators,
+               <span style="color:#e6db74">&#39;max_features&#39;</span>: max_features,
+               <span style="color:#e6db74">&#39;max_depth&#39;</span>: max_depth,
+               <span style="color:#e6db74">&#39;min_samples_split&#39;</span>: min_samples_split,
+               <span style="color:#e6db74">&#39;min_samples_leaf&#39;</span>: min_samples_leaf,
+               <span style="color:#e6db74">&#39;bootstrap&#39;</span>: bootstrap<span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># Use the random grid to search for best hyperparameters</span>
+rf <span style="color:#f92672">=</span> RandomForestClassifier<span style="color:#f92672">()</span>
+<span style="color:#75715e"># Random search of parameters, using 3 fold cross validation, search across 100 different combinations, and use all available cores</span>
+rf_random <span style="color:#f92672">=</span> RandomizedSearchCV<span style="color:#f92672">(</span>estimator <span style="color:#f92672">=</span> rf, param_distributions <span style="color:#f92672">=</span> random_grid, n_iter <span style="color:#f92672">=</span> 100, cv <span style="color:#f92672">=</span> 3, verbose<span style="color:#f92672">=</span>2, random_state<span style="color:#f92672">=</span>42, n_jobs <span style="color:#f92672">=</span> -1<span style="color:#f92672">)</span>
+<span style="color:#75715e"># Fit the random search model</span>
+rf_random.fit<span style="color:#f92672">(</span>X_train, y_train<span style="color:#f92672">)</span>           
+</code></pre></div><h2 id="random-forest-modeling">Random Forest Modeling</h2>
+<p>With regards to model development process, I built the Random Forest model, which is an ensemble learning method. It is trained on different parts of the data, and builds multiple decision trees during the training process then return the prediction by finding the most votes from individual trees. The major advantages of Random Forests is that it helps with our goal of  boosting model performance and solving overfitting issues, but these advantages may come at the expense of some loss of interpretability.</p>
+<p>For thr hyperparameter tuning process, I initially generated a grid of possible parameters including &ldquo;n_estimators&rdquo;, &ldquo;min_samples_split&rdquo;, &ldquo;min_samples_leaf&rdquo;, &ldquo;max_features&rdquo;, &ldquo;max_depth&rdquo;,  and &ldquo;bootstrap&rdquo; for the model to choose from.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#parameters of the best model</span>
+rf_random.best_params_
+
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#39;n_estimators&#39;</span>: 1100,
+ <span style="color:#e6db74">&#39;min_samples_split&#39;</span>: 10,
+ <span style="color:#e6db74">&#39;min_samples_leaf&#39;</span>: 2,
+ <span style="color:#e6db74">&#39;max_features&#39;</span>: <span style="color:#e6db74">&#39;sqrt&#39;</span>,
+ <span style="color:#e6db74">&#39;max_depth&#39;</span>: 50,
+ <span style="color:#e6db74">&#39;bootstrap&#39;</span>: False<span style="color:#f92672">}</span>
+</code></pre></div><p>With the help of RandomizedSearchCV function, performed gird search to find the set of parameters that returns highest accuracy values. After completing the tuning process, the best parameters are shown above.</p>
+<p><img src="./rf.png" alt="png"></p>
+<p>Random has proved to be a very powerful model for classfication problems. The accuracy has boosted to 0.99 on train data and reached 0.68 on test data. The metrics were also satisfying for precision, recall and F1, indicating it performed well on four categories as well.</p>
+<table>
+<thead>
+<tr>
+<th>Table 1 - Model evaluations on train dataset</th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th>Train</th>
+<th>Dummy Classifier</th>
+<th>Logistic Regression</th>
+<th>SVM</th>
+<th>KNN</th>
+<th>Random Forest</th>
+<th>Xgboost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td>0.59</td>
+<td>0.65</td>
+<td>0.70</td>
+<td>0.64</td>
+<td>0.99</td>
+<td>0.77</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>0.34</td>
+<td>0.64</td>
+<td>0.68</td>
+<td>0.59</td>
+<td>0.99</td>
+<td>0.76</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>0.59</td>
+<td>0.65</td>
+<td>0.70</td>
+<td>0.64</td>
+<td>0.99</td>
+<td>0.77</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>0.43</td>
+<td>0.60</td>
+<td>0.66</td>
+<td>0.59</td>
+<td>0.99</td>
+<td>0.75</td>
+</tr>
+</tbody>
+</table>
+<p>The above table shows all of modeling results. All models performed quite well after cross-validation and tuning process, with an accuracy above 64% for all models except dummy model. Random Forest ranks top in terms of performance on train data. It has almost perfect results in terms of classification.</p>
+<table>
+<thead>
+<tr>
+<th>Table 2 - Model evaluations on test dataset</th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Dummy Classifier</th>
+<th>Logistic Regression</th>
+<th>SVM</th>
+<th>KNN</th>
+<th>Random Forest</th>
+<th>Xgboost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td>0.59</td>
+<td>0.65</td>
+<td>0.60</td>
+<td>0.66</td>
+<td>0.68</td>
+<td>0.68</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>0.34</td>
+<td>0.60</td>
+<td>0.63</td>
+<td>0.55</td>
+<td>0.65</td>
+<td>0.65</td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>0.59</td>
+<td>0.65</td>
+<td>0.66</td>
+<td>0.60</td>
+<td>0.68</td>
+<td>0.68</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>0.43</td>
+<td>0.59</td>
+<td>0.62</td>
+<td>0.53</td>
+<td>0.64</td>
+<td>0.66</td>
+</tr>
+</tbody>
+</table>
+<p>However, when we look at results on test data, random forest model performed roughly the same as Xgboost modeling. The accuracy of Random Forest is 0.68, which is much lower than on train data, which indictas potential issues of overfitting. Based on a combination of performance and consistency, we chose Xgboost which has the highest accuracy of 68% with a overall satisfactory performance on all four categories. All F1, recall and precision values are aligned.</p>
+<h2 id="reason-why-xgboost-outperformed">Reason why Xgboost outperformed</h2>
+<p>Our results are aligned in practice of various data science competitions and it also makes sense because for a theoretical standpoint.
+Xgboost is essentially a very powerful model especially for classification problems. XGBoost stands for extreme gradient boosting. Boosting is an ensemble technique which trains models in sequence rather than training models separately. Each new model will correct the errors made by the previous ones and are added sequentially until no further improvements are available.</p>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="online-ml-real-time-prediction">Online ML Real-Time Prediction</h2>
+<p>Online real-time prediction is one of the unique features of our data product. I implemented this platform, from designing the initial layout, seraching for best tools to implementation. The backend I decided to use is Flask, because it is lightweight with simple syntax comparing with other backend options, and it is based on Python which has higher popularity in DS field. Moreover, Flask app could be combined with Dash to create fascinating visualization effects, and it integrates perfectly with the dashboard.</p>
+<p>Total of 10 variables are available for users to manually input with descriptions by the side. Five authors features are the top five are featuring protest plot while the rest are features with higher availability to the general public. There are over 80 features in our data and they will be unrealistic for user input every variable. Below is the input section:</p>
+<p><img src="./10.png" alt="png"></p>
+<p>This was a great opportunity for me to brush-up on web dev skills. I used HTML and CSS for writing the structure and decoration of this interface, and callbacks in Javascript to render the inputs. Here shows a part of code to demonstarte this process.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">server <span style="color:#f92672">=</span> flask.Flask<span style="color:#f92672">(</span>__name__<span style="color:#f92672">)</span>
+app <span style="color:#f92672">=</span> dash.Dash<span style="color:#f92672">(</span>__name__, server<span style="color:#f92672">=</span>server,external_stylesheets<span style="color:#f92672">=</span>external_stylesheets<span style="color:#f92672">)</span>
+
+layout <span style="color:#f92672">=</span> html.Div<span style="color:#f92672">([</span>
+    dbc.Container<span style="color:#f92672">([</span>
+        dbc.Row<span style="color:#f92672">([</span> dbc.Col<span style="color:#f92672">(</span>html.H1<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Real Time Prediction Serverless App&#34;</span><span style="color:#f92672">)</span>, className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mb-2&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">])</span>,
+    dbc.Container<span style="color:#f92672">([</span>
+        dbc.Row<span style="color:#f92672">([</span>dbc.Col<span style="color:#f92672">(</span>dbc.Card<span style="color:#f92672">(</span>html.H3<span style="color:#f92672">(</span>children<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Input Features&#39;</span>,className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-center text-light bg-dark&#34;</span><span style="color:#f92672">)</span>, body<span style="color:#f92672">=</span>True, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dark&#34;</span><span style="color:#f92672">)</span>, className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mt-4 mb-4&#34;</span><span style="color:#f92672">)])</span> <span style="color:#f92672">])</span>,
+    dbc.FormGroup<span style="color:#f92672">([</span>dbc.Label<span style="color:#f92672">([</span><span style="color:#e6db74">&#34;Binary Input: if insurance type is &#39;medicare&#39; then 1 else 0&#34;</span><span style="color:#f92672">])</span>,
+        dbc.Input<span style="color:#f92672">(</span>id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;INSURANCE_Medicare&#34;</span>,type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span>, placeholder<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Enter or select...&#34;</span>,min<span style="color:#f92672">=</span>0, max<span style="color:#f92672">=</span>1<span style="color:#f92672">)</span>,<span style="color:#f92672">])</span>,
+ 
+@app.callback<span style="color:#f92672">(</span>
+    Output<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;out&#34;</span>, <span style="color:#e6db74">&#34;children&#34;</span><span style="color:#f92672">)</span>,
+    <span style="color:#f92672">[</span>Input<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;show&#34;</span>, <span style="color:#e6db74">&#34;n_clicks&#34;</span><span style="color:#f92672">)]</span>,
+    
+    state<span style="color:#f92672">=[</span>State<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span>,
+           State<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Gender&#34;</span>, <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span>,
+           State<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;HeartRate_Mean&#34;</span>, <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span>,
+           State<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Glucose_Mean&#34;</span>, <span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span>,
+</code></pre></div><p>Therefore, besides these 10 selected features, I used mode or mean of the rest remaining variables available to public such as age, sex, and heart rate level, etc.There are over 80 features in our data and it will be unrealistic for user to input every variable. Therefore besides these 10 selected features, we use mod or mean of the rest remaining variables.</p>
+<p>There are over 80 features in our data and they will be unrealistic for user input every variable. Therefore besides these 10 selected features, we use mode or meaning of the remaining variables.</p>
+<p><img src="./6.png" alt="png"></p>
+<p>Once the user finished all the required input. Upon clicking the go button our cloud-based model will display the most accurate prediction based on the input. Here we can see that the best gas according to my input is home which means the patient with such features is most likely to be discharged to home.</p>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="my-takeaways-from-this-project">My takeaways from this project</h2>
+<p>I&rsquo;m really glad to have this great opportunity to work with MIMIC EHR dataset, I have always been intrigued by application of Data Science in biomedical filed and this final project marked a milestone on my trajectory into personal &ldquo;wild west&rdquo;.</p>
+<p>This was a good combination of skills learned in class and real-world challenges, and I feel very satisfied to successfully implement a complete inteface based on ML modeling and analysis. Big shout-out to my teammates for a semester&rsquo;s hard work.😊 Thanks to Prof. Chan and TA for all the precious instructions &amp; suggestions.🎉</p>
+<p>I hope you&rsquo;re enjoying this blog article and find our data product interesting. Here is the <a href="https://bios823-mimic-dashboard.ue.r.appspot.com/deploy_app">Interactive App</a>. <a href="https://github.com/biostats823-final-project/MIMIC-Predictive-Modeling">GitHub Link of models</a> is here. <a href="https://github.com/biostats823-final-project/MIMIC-Dashboard">GitHub Link of dashboard</a> can be found here.</p>
+<p>Thanks for reading！</p>
+<p><img src="./0.png" alt="png"></p>
+<h2 id="references">References</h2>
+<p>Plotly website <a href="https://plotly.com/">https://plotly.com/</a></p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/ml/">ML</a>
+  
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://yuan-feng1.github.io/">Yuan Feng</a></h5>
+      <h6 class="card-subtitle">Master of Interdisciplinary Data Science</h6>
+      <p class="card-text" itemprop="description">Current NLP Research Assistant at Credit Suisse. Former Data Scientist intern at Amazon &amp; Lenovo &amp; Levels.fyi.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://www.linkedin.com/in/yuanfeng11/" target="_blank" rel="noopener">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/yuan-feng1" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    </div>
+
+    
+    
+    
+    </div>
+  </div>
+</article>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/Twitter" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="skype:echo123?call"  title="Skype Me"><i class="fab fa-skype" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://keybase.io/" target="_blank" rel="noopener" title="Chat on Keybase"><i class="fab fa-keybase" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://discourse.gohugo.io" target="_blank" rel="noopener" title="Discuss on Forum"><i class="fas fa-comments" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

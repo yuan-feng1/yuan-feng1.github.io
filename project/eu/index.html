@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academia 4.3.1">
+  <meta name="generator" content="Hugo 0.74.3" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Yuan Feng">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Problem 13 Large sum - Solved by 224972  In this question, we are asked to:
+Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. link here
+The thought process of this problem is quite straightforward: we first sum up the one-hundred 50-digit numbers, then with the result, turn it into a string, then slicing the first ten digits would solve the problem.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://yuan-feng1.github.io/project/eu/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#fc6f5c">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academia.min.4e3b2f408b00c06405993e164c128cb2.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://yuan-feng1.github.io/project/eu/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Yuan Feng">
+  <meta property="og:url" content="https://yuan-feng1.github.io/project/eu/">
+  <meta property="og:title" content="Project Euler Solutions | Yuan Feng">
+  <meta property="og:description" content="Problem 13 Large sum - Solved by 224972  In this question, we are asked to:
+Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. link here
+The thought process of this problem is quite straightforward: we first sum up the one-hundred 50-digit numbers, then with the result, turn it into a string, then slicing the first ten digits would solve the problem."><meta property="og:image" content="https://yuan-feng1.github.io/project/eu/featured.jpg">
+  <meta property="twitter:image" content="https://yuan-feng1.github.io/project/eu/featured.jpg"><meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2021-03-08T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2021-03-08T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Project Euler Solutions | Yuan Feng</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>About me</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article article-project py-5" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container split-header">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+        <img class="img-fluid w-100" src="/project/eu/featured_huae7323d504c05a06172f7021c8a19ffc_974875_680x500_fill_q90_lanczos_smart1.jpg" itemprop="image" alt="">
+        
+    </div>
+    <div class="col-lg-8">
+      <h1 itemprop="name">Project Euler Solutions</h1>
+
+      
+
+      
+
+
+
+<meta content="2021-03-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2021-03-08 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Mar 8, 2021</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://yuan-feng1.github.io/project/eu/&amp;text=Project%20Euler%20Solutions" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://yuan-feng1.github.io/project/eu/&amp;t=Project%20Euler%20Solutions" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Project%20Euler%20Solutions&amp;body=https://yuan-feng1.github.io/project/eu/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://yuan-feng1.github.io/project/eu/&amp;title=Project%20Euler%20Solutions" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Project%20Euler%20Solutions%20https://yuan-feng1.github.io/project/eu/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://yuan-feng1.github.io/project/eu/&amp;title=Project%20Euler%20Solutions" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <ul>
+<li><strong>Problem 13 Large sum - Solved by 224972</strong></li>
+</ul>
+<p>In this question, we are asked to:</p>
+<p>Work out the first ten digits of the sum of the following one-hundred 50-digit numbers. <a href="https://projecteuler.net/problem=13">link here</a></p>
+<p>The thought process of this problem is quite straightforward: we first sum up the one-hundred 50-digit numbers, then with the result, turn it into a string, then slicing the first ten digits would solve the problem.</p>
+<p>In python, this is actually an easy process, using the built-in <code>sum()</code> and <code>str()</code> function, we could simply generate the sum, then turn it into a string and slice the first 10 digits.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+def Solution_13<span style="color:#f92672">(</span>nums<span style="color:#f92672">)</span>:
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    The sum of nums array,
+</span><span style="color:#e6db74">    transform into string,
+</span><span style="color:#e6db74">    take the first 10 digits
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    ttl <span style="color:#f92672">=</span> sum<span style="color:#f92672">(</span>nums<span style="color:#f92672">)</span>
+    answer <span style="color:#f92672">=</span> str<span style="color:#f92672">(</span>ttl<span style="color:#f92672">)[</span>:10<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">return</span> answer
+
+nums <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>
+	37107287533902102798797998220837590246510135740250,
+	46376937677490009712648124896970078050417018260538,
+	74324986199524741059474233309513058123726617309629,
+	91942213363574161572522430563301811072406154908250,
+	23067588207539346171171980310421047513778063246676,
+	89261670696623633820136378418383684178734361726757,
+	28112879812849979408065481931592621691275889832738,
+	44274228917432520321923589422876796487670272189318,
+	47451445736001306439091167216856844588711603153276,
+	70386486105843025439939619828917593665686757934951,
+	62176457141856560629502157223196586755079324193331,
+	64906352462741904929101432445813822663347944758178,
+	92575867718337217661963751590579239728245598838407,
+	58203565325359399008402633568948830189458628227828,
+	80181199384826282014278194139940567587151170094390,
+	35398664372827112653829987240784473053190104293586,
+	86515506006295864861532075273371959191420517255829,
+	71693888707715466499115593487603532921714970056938,
+	54370070576826684624621495650076471787294438377604,
+	53282654108756828443191190634694037855217779295145,
+	36123272525000296071075082563815656710885258350721,
+	45876576172410976447339110607218265236877223636045,
+	17423706905851860660448207621209813287860733969412,
+	81142660418086830619328460811191061556940512689692,
+	51934325451728388641918047049293215058642563049483,
+	62467221648435076201727918039944693004732956340691,
+	15732444386908125794514089057706229429197107928209,
+	55037687525678773091862540744969844508330393682126,
+	18336384825330154686196124348767681297534375946515,
+	80386287592878490201521685554828717201219257766954,
+	78182833757993103614740356856449095527097864797581,
+	16726320100436897842553539920931837441497806860984,
+	48403098129077791799088218795327364475675590848030,
+	87086987551392711854517078544161852424320693150332,
+	59959406895756536782107074926966537676326235447210,
+	69793950679652694742597709739166693763042633987085,
+	41052684708299085211399427365734116182760315001271,
+	65378607361501080857009149939512557028198746004375,
+	35829035317434717326932123578154982629742552737307,
+	94953759765105305946966067683156574377167401875275,
+	88902802571733229619176668713819931811048770190271,
+	25267680276078003013678680992525463401061632866526,
+	36270218540497705585629946580636237993140746255962,
+	24074486908231174977792365466257246923322810917141,
+	91430288197103288597806669760892938638285025333403,
+	34413065578016127815921815005561868836468420090470,
+	23053081172816430487623791969842487255036638784583,
+	11487696932154902810424020138335124462181441773470,
+	63783299490636259666498587618221225225512486764533,
+	67720186971698544312419572409913959008952310058822,
+	95548255300263520781532296796249481641953868218774,
+	76085327132285723110424803456124867697064507995236,
+	37774242535411291684276865538926205024910326572967,
+	23701913275725675285653248258265463092207058596522,
+	29798860272258331913126375147341994889534765745501,
+	18495701454879288984856827726077713721403798879715,
+	38298203783031473527721580348144513491373226651381,
+	34829543829199918180278916522431027392251122869539,
+	40957953066405232632538044100059654939159879593635,
+	29746152185502371307642255121183693803580388584903,
+	41698116222072977186158236678424689157993532961922,
+	62467957194401269043877107275048102390895523597457,
+	23189706772547915061505504953922979530901129967519,
+	86188088225875314529584099251203829009407770775672,
+	11306739708304724483816533873502340845647058077308,
+	82959174767140363198008187129011875491310547126581,
+	97623331044818386269515456334926366572897563400500,
+	42846280183517070527831839425882145521227251250327,
+	55121603546981200581762165212827652751691296897789,
+	32238195734329339946437501907836945765883352399886,
+	75506164965184775180738168837861091527357929701337,
+	62177842752192623401942399639168044983993173312731,
+	32924185707147349566916674687634660915035914677504,
+	99518671430235219628894890102423325116913619626622,
+	73267460800591547471830798392868535206946944540724,
+	76841822524674417161514036427982273348055556214818,
+	97142617910342598647204516893989422179826088076852,
+	87783646182799346313767754307809363333018982642090,
+	10848802521674670883215120185883543223812876952786,
+	71329612474782464538636993009049310363619763878039,
+	62184073572399794223406235393808339651327408011116,
+	66627891981488087797941876876144230030984490851411,
+	60661826293682836764744779239180335110989069790714,
+	85786944089552990653640447425576083659976645795096,
+	66024396409905389607120198219976047599490197230297,
+	64913982680032973156037120041377903785566085089252,
+	16730939319872750275468906903707539413042652315011,
+	94809377245048795150954100921645863754710598436791,
+	78639167021187492431995700641917969777599028300699,
+	15368713711936614952811305876380278410754449733078,
+	40789923115535562561142322423255033685442488917353,
+	44889911501440648020369068063960672322193204149535,
+	41503128880339536053299340368006977710650566631954,
+	81234880673210146739058568557934581403627822703280,
+	82616570773948327592232845941706525094512325230608,
+	22918802058777319719839450180888072429661980811197,
+	77158542502016545090413245809786882778948721859617,
+	72107838435069186155435662884062257473692284509516,
+	20849603980134001723930671666823555245252804609722,
+	53503534226472524250874054075591789781264330331690,
+<span style="color:#f92672">]</span>
+
+print<span style="color:#f92672">(</span>Solution_13<span style="color:#f92672">(</span>nums<span style="color:#f92672">))</span>
+
+</code></pre></div><p>After this code was run, the terminal would show the following results, and the final answer is 5537376230.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+yuanfeng@yuans-MacBook-Air <span style="color:#ae81ff">823</span> % python Euler_13.py
+<span style="color:#ae81ff">5537376230</span>
+
+</code></pre></div><ul>
+<li><strong>Problem 31 Coin sums - Solved by 83654</strong></li>
+</ul>
+<p>In this question, we are asked:</p>
+<p>In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:</p>
+<p>1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).
+It is possible to make £2 in the following way:</p>
+<p>1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p
+How many different ways can £2 be made using any number of coins? <a href="https://projecteuler.net/problem=31">link here</a></p>
+<p>This is a typical problem of <code>Dynamic Programming</code>. Based on the descriptions, the order of the coins does not matter, and there will be enough coins to make each combination. I followed the normal way of solving DP problems by going from a small base case, and dive deeper into more complex cases. <code>Tablation</code> is an optimal choice to reduce the space complexity, I built a table with all the possible combinations given the total amount value.</p>
+<p>Here is a table of base case: only the 1 penny is used as indicated in the second column, and as the target increase, there is only one way to reach the targeted amount.</p>
+<table>
+<thead>
+<tr>
+<th>target</th>
+<th>only 1 p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0p</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1p</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2p</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3p</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4p</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>We then move forward to using both 1 penny and 2 penny coins. The following table shows the ways of coin combinations to reach the targeted amount. Since 0 and 1 are number below 2, only 1 penny is used. As we move to higher value of targets, if the difference between two target values is the same as a given coin, then we have one more possible combination by simply adding one more coin.</p>
+<table>
+<thead>
+<tr>
+<th>target</th>
+<th>1p, 2p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0p</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1p</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2p</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3p</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4p</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>To generalize the previous process, we ran over all the possible coins. For each coin, we modify the table from values in the target column that equals the value of the coin until we reach the final target value. This is a quite straightforward algorithm that could be implemented by the following code in Python:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+def Solution_31<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span>:
+  <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  Dynamic programming to count the number
+</span><span style="color:#e6db74">  of coin combinations
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+  <span style="color:#75715e">#convert the amount to pennies</span>
+	sum <span style="color:#f92672">=</span> target*100
+  <span style="color:#75715e">#total values in the target column</span>
+	ttl <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> + <span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> * sum
+  <span style="color:#75715e">#list of coins to choose from</span>
+ 	coins <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 2, 5, 10, 20, 50, 100, 200<span style="color:#f92672">]</span>
+  <span style="color:#75715e">#as we move towards to coins of larger value, update the table by adding new possible combinations</span> 
+	<span style="color:#66d9ef">for</span> coin in coins:
+		<span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>sum + <span style="color:#ae81ff">1</span> - coin<span style="color:#f92672">)</span>:
+			ttl<span style="color:#f92672">[</span>i + coin<span style="color:#f92672">]</span> +<span style="color:#f92672">=</span> ttl<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>
+  <span style="color:#75715e">#return the result</span>
+	<span style="color:#66d9ef">return</span> str<span style="color:#f92672">(</span>ttl<span style="color:#f92672">[</span>-1<span style="color:#f92672">])</span>
+
+print<span style="color:#f92672">(</span>Solution_31<span style="color:#f92672">(</span>2<span style="color:#f92672">))</span>
+<span style="color:#75715e"># result: 73682</span>
+</code></pre></div><ul>
+<li><strong>Problem 31 Coin sums - Solved by 23296</strong></li>
+</ul>
+<p>In this question, we are asked:</p>
+<p>Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
+where each “_” is a single digit.</p>
+<p>Filling in the blank spaces with 0 or 9 will give us the minimum or maximum value of the square. We take the square root and the range of answer is [1010101010, 1389026623].</p>
+<p>The last digit in the required form is 0, therefore the number we hope to find should also end in 0, this in turn would mean its square will end in two 0s. This will further reduce the range of answers to [101010101, 138902662]. Now we could look at the second-last number. Since its square ends in 900, the target number should end in either 70 or 30.</p>
+<p>Now we have reduced the search range to a much smaller scale. We first generate the minimum and maximum values, then write a for loop to go through each number in this range. If the last two numbers are 70 or 30, we then check if its square fits in 1_2_3_4_5_6_7_8_9_0.</p>
+<p>Here is an implementation of the previous algorithm.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+import math
+
+def helper<span style="color:#f92672">(</span>n<span style="color:#f92672">)</span>:
+  <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  determines if the given number fits in 1_2_3_4_5_6_7_8_9_0
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+  <span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>8,0,-1<span style="color:#f92672">)</span>:
+      n <span style="color:#f92672">=</span> int<span style="color:#f92672">(</span>n / 100<span style="color:#f92672">)</span>;
+      <span style="color:#66d9ef">if</span> n % <span style="color:#ae81ff">10</span> !<span style="color:#f92672">=</span> i:
+          <span style="color:#66d9ef">return</span> False;
+  <span style="color:#66d9ef">return</span> True;
+
+def Solution_206<span style="color:#f92672">()</span>:  
+  <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  generate the range of answers and check each value
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>  
+  min_val <span style="color:#f92672">=</span> int<span style="color:#f92672">(</span>math.sqrt<span style="color:#f92672">(</span>10203040506070809<span style="color:#f92672">)</span> / 10<span style="color:#f92672">)</span>;
+  max_val <span style="color:#f92672">=</span> int<span style="color:#f92672">(</span>math.sqrt<span style="color:#f92672">(</span>19293949596979899<span style="color:#f92672">)</span> / 10<span style="color:#f92672">)</span> + 1;
+    
+  <span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>min_val, max_val<span style="color:#f92672">)</span>:
+  <span style="color:#75715e">#if the value ends in 3 or 7, we check its square</span>
+      num <span style="color:#f92672">=</span> i * <span style="color:#ae81ff">10</span> + 3;
+      <span style="color:#75715e">#if accepted, break the loop and print the value</span>
+      <span style="color:#66d9ef">if</span> helper<span style="color:#f92672">(</span>num*num<span style="color:#f92672">)</span>:
+          break;
+        
+      num <span style="color:#f92672">=</span> i * <span style="color:#ae81ff">10</span> + 7;
+      <span style="color:#66d9ef">if</span> helper<span style="color:#f92672">(</span>num* num<span style="color:#f92672">)</span>:
+          break;
+  print<span style="color:#f92672">(</span>num * 10<span style="color:#f92672">)</span>;
+
+<span style="color:#75715e">#result: 1389019170</span>
+
+</code></pre></div><p>Congratulations! Now you have figured out three interesting questions from Project Euler. If you find this article interesting, feel free to check out <a href="https://projecteuler.net/">Project Euler</a></p>
+<p><a href="https://drive.google.com/drive/folders/13oqgkZA9Pqa4BGbakiPZVguvAkShETve?usp=sharing">Screenshots of Solved problems</a></p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/demo/">Demo</a>
+  
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="https://yuan-feng1.github.io/">Yuan Feng</a></h5>
+      <h6 class="card-subtitle">Master of Interdisciplinary Data Science</h6>
+      <p class="card-text" itemprop="description">Current NLP Research Assistant at Credit Suisse. Former Data Scientist intern at Amazon &amp; Lenovo &amp; Levels.fyi.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://www.linkedin.com/in/yuanfeng11/" target="_blank" rel="noopener">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/yuan-feng1" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    </div>
+
+    
+    
+    
+    </div>
+  </div>
+</article>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academia.min.7276a6a3624de715a5c7f54c7c07696d.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        
+      </div>
+      <div class="col-md-6">
+        <ul class="list-inline network-icon text-right">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/Twitter" target="_blank" rel="noopener" title="DM Me"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="skype:echo123?call"  title="Skype Me"><i class="fab fa-skype" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://keybase.io/" target="_blank" rel="noopener" title="Chat on Keybase"><i class="fab fa-keybase" aria-hidden="true"></i></a>
+          </li>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://discourse.gohugo.io" target="_blank" rel="noopener" title="Discuss on Forum"><i class="fas fa-comments" aria-hidden="true"></i></a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
